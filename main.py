@@ -27,14 +27,14 @@ def pinDetect(pin):
     housemates[selected%10].deSelect()
     try:
         clkState = GPIO.input(17)
-        #if clkState != clkLastState:
-        dtState = GPIO.input(27)
-        if dtState != clkState:
-            selected += 1
-        else:
-            selected -= 1
-        print(str(selected))
-        clkLastState = clkState
+        if clkState != clkLastState:
+            dtState = GPIO.input(27)
+            if dtState != clkState:
+                selected += 1
+            else:
+                selected -= 1
+            print(str(selected))
+            clkLastState = clkState
     finally:
                 print("Ending")
 
@@ -166,7 +166,7 @@ refreshList()
 
 
 try:
-    GPIO.add_event_detect(17, GPIO.FALLING, callback=pinDetect, bouncetime=150)
+    GPIO.add_event_detect(17, GPIO.FALLING, callback=pinDetect, bouncetime=50)
 except:
     print("not currently running on a RPI 2")
 
