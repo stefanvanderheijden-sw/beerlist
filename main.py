@@ -13,7 +13,7 @@ window = tk.Tk()
 greeting = tk.Label(text="Hello, Tkinter")
 counter = 0
 selected = 0
-
+clkLastState = GPIO.input(17)
 housemates = []
 labelList = []
 
