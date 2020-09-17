@@ -5,8 +5,8 @@ GPIO.setwarnings(False)
 GPIO.setup(17, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(27, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
-BUTTON_TOP = 21
-BUTTON_BOTTOM = 20
+BUTTON_TOP = 20
+BUTTON_BOTTOM = 21
 
 GPIO.setup(BUTTON_TOP, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(BUTTON_BOTTOM, GPIO.IN, pull_up_down=GPIO.PUD_UP)
