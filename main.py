@@ -32,6 +32,7 @@ def pinDetect(pin):
                 selected += 1
             else:
                 selected -= 1
+            print(str(selected))
         clkLastState = clkState
     finally:
                 print("Ending")
