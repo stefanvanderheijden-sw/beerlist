@@ -37,12 +37,6 @@ def pinDetect(pin):
             clkLastState = clkState
         else: 
             print("no change from last time")
-        
-
-    try:
-        housemates[selected%10].select()
-    except:
-        print("out of reach")
     # global selected
     # housemates[selected].deSelect()
 
