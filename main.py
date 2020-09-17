@@ -78,9 +78,7 @@ def refreshList():
         window.rowconfigure(i, weight=1)
     refreshBeerList()
         
-window.columnconfigure(1, weight=1)
-window.columnconfigure(2, weight=1)
-window.columnconfigure(4, weight=1)
+
 
 def refreshBeerList():
     for housemate in housemates:
@@ -174,6 +172,10 @@ refreshBeerList()
 
 refreshList()
 
+
+window.columnconfigure(1, weight=1)
+window.columnconfigure(2, weight=2)
+window.columnconfigure(4, weight=3)
 
 
 clkLastState = GPIO.input(17)
