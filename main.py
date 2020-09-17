@@ -34,8 +34,6 @@ def pinDetect(pin):
         selected -= 1
     else:
         selected += 1
-        
-    print(str(selected))
 
     if selected < 1:
         selected = 0
