@@ -24,7 +24,7 @@ def sortlist(list):
 def pinDetect(pin):
     global selected
     global clkLastState
-    housemates[selected%10].deSelect()
+    housemates[selected].deSelect()
  
     clkState = GPIO.input(17)
     dtState = GPIO.input(27)
@@ -41,7 +41,7 @@ def pinDetect(pin):
     if selected > len(housemates):
         selected = len(housemates)
 
-
+    housemates[selected].select()
     
     
 
