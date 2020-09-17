@@ -2,8 +2,8 @@
 import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
-GPIO.setup(17, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-GPIO.setup(27, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(17, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(27, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 from time import sleep
 import tkinter as tk
@@ -22,16 +22,18 @@ def sortlist(list):
     return list
 
 def pinDetect(pin):
+    clkState = GPIO.input(17)
+    dtState = GPIO.input(27)
+    
     global selected
     global clkLastState
     housemates[selected].deSelect()
  
-    clkState = GPIO.input(17)
-    dtState = GPIO.input(27)
+
     if dtState != clkState:
-        selected += 1
-    else:
         selected -= 1
+    else:
+        selected += 1
         
     print(str(selected))
 
@@ -151,7 +153,7 @@ refreshList()
 
 
 try:
-    GPIO.add_event_detect(17, GPIO.FALLING, callback=pinDetect, bouncetime=40)
+    GPIO.add_event_detect(17, GPIO.FALLING, callback=pinDetect, bouncetime=100)
 except:
     print("not currently running on a RPI 2")
 
