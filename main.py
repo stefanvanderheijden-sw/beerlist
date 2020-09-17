@@ -1,10 +1,9 @@
-try:
-    import RPI.GPIO as GPIO
-    GPIO.setmode(GPIO.BCM)
-    GPIO.setwarnings(False)
-    GPIO.setup(17, GPIO.IN)
-except:
-    print("not currently running on a RPI 1")
+
+import RPI.GPIO as GPIO
+GPIO.setmode(GPIO.BCM)
+GPIO.setwarnings(False)
+GPIO.setup(17, GPIO.IN)
+
 from time import sleep
 import tkinter as tk
 import operator
