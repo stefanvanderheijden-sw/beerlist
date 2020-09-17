@@ -24,6 +24,7 @@ def sortlist(list):
 def pinDetect(pin):
     global selected
     global clkLastState
+    housemates[selected%10].deSelect()
     try:
         clkState = GPIO.input(17)
         #if clkState != clkLastState:
