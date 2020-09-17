@@ -23,12 +23,10 @@ import tkinter as tk
 import operator
 
 window = tk.Tk()
-#window.attributes("-fullscreen", True)
+window.attributes("-fullscreen", True)
 greeting = tk.Label(text="Hello, Tkinter")
 counter = 0
 selected = 0
-
-
 
 housemates = []
 labelList = []
@@ -66,8 +64,6 @@ def pinDetect(pin):
         selected = (len(housemates)-1)
 
     housemates[selected].select()
-    
-    
 
 def refreshList():
     global housemates
@@ -78,8 +74,6 @@ def refreshList():
         window.rowconfigure(i, weight=1)
     refreshBeerList()
         
-
-
 def refreshBeerList():
     for housemate in housemates:
         housemate.drawLabelBeer()
@@ -163,20 +157,11 @@ housemates.append(housemate("House",0))
 
 refreshList()
 
-
-
 housemates[10].setBeerCount(12)
 
 refreshBeerList()
 
-
 refreshList()
-
-
-window.columnconfigure(1, weight=1)
-window.columnconfigure(2, weight=2)
-window.columnconfigure(4, weight=3)
-
 
 clkLastState = GPIO.input(17)
 try:
