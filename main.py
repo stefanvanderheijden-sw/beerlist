@@ -25,18 +25,18 @@ def pinDetect(pin):
     global selected
     global clkLastState
     housemates[selected%10].deSelect()
-    try:
-        clkState = GPIO.input(17)
-        if clkState != clkLastState:
-            dtState = GPIO.input(27)
-            if dtState != clkState:
-                selected += 1
-            else:
-                selected -= 1
-            print(str(selected))
-            clkLastState = clkState
-        else: 
-            print("no change from last time")
+ 
+    clkState = GPIO.input(17)
+    if clkState != clkLastState:
+        dtState = GPIO.input(27)
+        if dtState != clkState:
+            selected += 1
+        else:
+            selected -= 1
+        
+    print(str(selected))
+
+    clkLastState = clkState
     # global selected
     # housemates[selected].deSelect()
 
