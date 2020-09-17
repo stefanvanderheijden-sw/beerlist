@@ -32,6 +32,10 @@ def topButton(pin):
     housemates[selected].addOneBeer()
     housemates[selected].drawLabelBeer()
 
+def bottomButton(pin):
+    housemates[selected].substractOneBeer()
+    housemates[selected].drawLabelBeer()
+
 
 def pinDetect(pin):
     clkState = GPIO.input(17)
@@ -164,6 +168,7 @@ clkLastState = GPIO.input(17)
 try:
     GPIO.add_event_detect(17, GPIO.RISING, callback=pinDetect, bouncetime=30)
     GPIO.add_event_detect(BUTTON_TOP, GPIO.FALLING, callback=topButton, bouncetime=300)
+    GPIO.add_event_detect(BUTTON_BOTTOM, GPIO.FALLING, callback=bottomButton, bouncetime=300)
 except:
     print("not currently running on a RPI 2")
 
