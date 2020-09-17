@@ -42,7 +42,7 @@ def pinDetect(pin):
         selected = (len(housemates)-1)
 
     clkLastState = clkState
-    
+
     housemates[selected].select()
     
     
@@ -151,7 +151,7 @@ refreshList()
 
 
 
-
+clkLastState = GPIO.input(17)
 try:
     GPIO.add_event_detect(17, GPIO.FALLING, callback=pinDetect, bouncetime=30)
 except:
