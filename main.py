@@ -21,7 +21,7 @@ def sortlist(list):
     list.sort(key=operator.attrgetter('name'))
     return list
 
-def pinDetect():
+def pinDetect(pin):
     global selected
     global clkLastState
     try:
