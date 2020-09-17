@@ -21,23 +21,41 @@ def sortlist(list):
     list.sort(key=operator.attrgetter('name'))
     return list
 
-def pinDetect(pin):
+def pinDetect():
     global selected
-    housemates[selected].deSelect()
+    global clkLastState
+    try:
+        clkState = GPIO.input(17)
+        if clkState != clkLastState:
+            dtState = GPIO.input(27)
+            if dtState != clkState:
+                selected += 1
+            else:
+                selected -= 1
+        clkLastState = clkState
+    finally:
+                print "Ending"
 
-    pin2 = GPIO.input(27)
+    try:
+        housemates[selected].select()
+    except:
+        print("out of reach")
+    # global selected
+    # housemates[selected].deSelect()
+
+    # pin2 = GPIO.input(27)
     
-    if pin2:
-        selected += 1
-        if selected > 10:
-            selected = 1
+    # if pin2:
+    #     selected += 1
+    #     if selected > 10:
+    #         selected = 1
 
-    else:
-        selected -= 1
-        if selected < 1:
-            selected = 10
+    # else:
+    #     selected -= 1
+    #     if selected < 1:
+    #         selected = 10
 
-    housemates[selected].select()
+    
     
 
 def refreshList():
@@ -146,7 +164,7 @@ refreshList()
 
 
 try:
-    GPIO.add_event_detect(17, GPIO.FALLING, callback=pinDetect, bouncetime=300)
+    GPIO.add_event_detect(17, GPIO.FALLING, callback=pinDetect, bouncetime=150)
 except:
     print("not currently running on a RPI 2")
 
