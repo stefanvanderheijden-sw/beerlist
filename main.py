@@ -34,7 +34,7 @@ def pinDetect():
                 selected -= 1
         clkLastState = clkState
     finally:
-                print "Ending"
+                print("Ending")
 
     try:
         housemates[selected].select()
