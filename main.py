@@ -76,6 +76,9 @@ def refreshList():
         window.rowconfigure(i, weight=1)
     refreshBeerList()
         
+window.columnconfigure(1, weight=1)
+window.columnfigure(2, weight=1)
+window.columnfigure(4, weight=1)
 
 def refreshBeerList():
     for housemate in housemates:
@@ -107,7 +110,7 @@ class housemate:
         self.drawLabel()
     
     def drawLabel(self):
-        self.label.grid(row = self.row, column=1, sticky = "w")
+        self.label.grid(row = self.row, column=1, sticky = "w", column=1)
 
     def drawLabelBeer(self):
         self.beerVar.set(str(self.beercount))
@@ -166,7 +169,6 @@ housemates[10].setBeerCount(12)
 
 refreshBeerList()
 
-housemates.append(housemate("AARON",1))
 
 refreshList()
 
