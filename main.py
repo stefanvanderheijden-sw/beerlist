@@ -163,7 +163,7 @@ refreshList()
 clkLastState = GPIO.input(17)
 try:
     GPIO.add_event_detect(17, GPIO.RISING, callback=pinDetect, bouncetime=30)
-    GPIO.add_event_detect(BUTTON_TOP, GPIO.BOTH, callback=topButton, bouncetime=200)
+    GPIO.add_event_detect(BUTTON_TOP, GPIO.FALLING, callback=topButton, bouncetime=300)
 except:
     print("not currently running on a RPI 2")
 
