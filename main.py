@@ -22,6 +22,6 @@ def loop():
 # Zet de GPIO pin als ingang.
 
 # Gebruik een interrupt, wanneer actief run subroutinne 'gedrukt'
-GPIO.add_event_detect(17, GPIO.RISING, callback=pinDetect, bouncetime=200)
+GPIO.add_event_detect(17, GPIO.RISING, callback=pinDetect, bouncetime=100)
  
 loop()
