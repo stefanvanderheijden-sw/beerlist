@@ -35,8 +35,9 @@ def pinDetect(pin):
                 selected -= 1
             print(str(selected))
             clkLastState = clkState
-    except:
-        print("no change from last time")
+        else: 
+            print("no change from last time")
+        
 
     try:
         housemates[selected%10].select()
