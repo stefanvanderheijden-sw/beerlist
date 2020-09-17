@@ -29,18 +29,20 @@ def pinDetect(pin):
     global clkLastState
     housemates[selected].deSelect()
  
+    if clkState != clkLastState:
+        if dtState != clkState:
+            selected -= 1
+        else:
+            selected += 1
 
-    if dtState != clkState:
-        selected -= 1
-    else:
-        selected += 1
-
-    if selected < 1:
-        selected = 0
+        if selected < 1:
+            selected = 0
 
     if (selected+1) > len(housemates):
         selected = (len(housemates)-1)
 
+    clkLastState = clkState
+    
     housemates[selected].select()
     
     
