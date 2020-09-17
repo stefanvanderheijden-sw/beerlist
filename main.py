@@ -28,7 +28,7 @@ greeting = tk.Label(text="Hello, Tkinter")
 counter = 0
 selected = 0
 
-button = Button (window, text="Good-bye.", command=window.destroy)
+button = tk.Button (window, text="Good-bye.", command=window.destroy)
 button.pack()
 
 housemates = []
