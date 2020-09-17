@@ -13,7 +13,7 @@ window = tk.Tk()
 greeting = tk.Label(text="Hello, Tkinter")
 counter = 0
 selected = 0
-clkLastState = GPIO.input(17)
+clkLastState = GPIO.input(27)
 housemates = []
 labelList = []
 
@@ -25,9 +25,9 @@ def pinDetect(pin):
     global selected
     global clkLastState
     try:
-        clkState = GPIO.input(17)
+        clkState = GPIO.input(27)
         if clkState != clkLastState:
-            dtState = GPIO.input(27)
+            dtState = GPIO.input(17)
             if dtState != clkState:
                 selected += 1
             else:
