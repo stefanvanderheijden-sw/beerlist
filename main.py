@@ -23,13 +23,12 @@ import tkinter as tk
 import operator
 
 window = tk.Tk()
-window.attributes("-fullscreen", True)
+#window.attributes("-fullscreen", True)
 greeting = tk.Label(text="Hello, Tkinter")
 counter = 0
 selected = 0
 
-button = tk.Button (window, text="Good-bye.", command=window.destroy)
-button.pack()
+
 
 housemates = []
 labelList = []
