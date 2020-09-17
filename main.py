@@ -1,17 +1,22 @@
-
-import RPi.GPIO as GPIO
-GPIO.setmode(GPIO.BCM)
-GPIO.setwarnings(False)
-GPIO.setup(17, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-GPIO.setup(27, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+try:
+    import RPi.GPIO as GPIO
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setwarnings(False)
+    GPIO.setup(17, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+    GPIO.setup(27, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+except:
+    print("not on RPI 1")
 
 
 BUTTON_TOP = 20
 BUTTON_BOTTOM = 21
 
-GPIO.setup(BUTTON_TOP, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-GPIO.setup(BUTTON_BOTTOM, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-
+try:
+    GPIO.setup(BUTTON_TOP, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+    GPIO.setup(BUTTON_BOTTOM, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+    clkLastState = GPIO.input(17)
+except:
+    print("not on RPI 2")
 
 from time import sleep
 import tkinter as tk
@@ -22,7 +27,7 @@ window.attributes("-fullscreen", True)
 greeting = tk.Label(text="Hello, Tkinter")
 counter = 0
 selected = 0
-clkLastState = GPIO.input(17)
+
 housemates = []
 labelList = []
 
@@ -68,6 +73,7 @@ def refreshList():
     for i in range(len(housemates)):
         housemates[i].setRow(i)
         housemates[i].refreshLabel()
+        window.rowconfigure(i, weight=1)
     refreshBeerList()
         
 
@@ -80,7 +86,7 @@ class housemate:
         self.beerVar = tk.StringVar(0)
         self.name = name
         self.beercount = beercount
-        self.label = tk.Label(window, text=self.name, width =  "15", background="white", anchor="w",expand=YES)
+        self.label = tk.Label(window, text=self.name, width =  "15", background="white", anchor="w")
         self.labelBeer = tk.Label(window, textvariable=self.beerVar)
         self.row = 0
 
