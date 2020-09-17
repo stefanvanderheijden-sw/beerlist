@@ -38,7 +38,7 @@ def pinDetect(pin):
                 print("Ending")
 
     try:
-        housemates[selected].select()
+        housemates[selected%10].select()
     except:
         print("out of reach")
     # global selected
