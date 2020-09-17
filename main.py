@@ -29,7 +29,7 @@ def pinDetect(pin):
     
     if pin2:
         selected += 1
-        if selected > len(housemates):
+        if selected > (len(housemates)-1):
             selected = 0
 
     else:
