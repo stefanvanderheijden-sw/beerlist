@@ -4,7 +4,7 @@ try:
     GPIO.setwarnings(False)
     GPIO.setup(17, GPIO.IN)
 except:
-    print("not currently running on a RPI")
+    print("not currently running on a RPI 1")
 from time import sleep
 import tkinter as tk
 import operator
@@ -139,6 +139,6 @@ refreshList()
 try:
     GPIO.add_event_detect(17, GPIO.RISING, callback=pinDetect, bouncetime=100)
 except:
-    print("not currently running on a RPI")
+    print("not currently running on a RPI 2")
 
 window.mainloop()
