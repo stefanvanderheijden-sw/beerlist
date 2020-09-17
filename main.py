@@ -113,7 +113,7 @@ class housemate:
         self.drawLabel()
     
     def drawLabel(self):
-        self.label.grid(row = self.row, column=1, sticky = "w", column=1)
+        self.label.grid(row = self.row, column=1, sticky = "w")
 
     def drawLabelBeer(self):
         self.beerVar.set(str(self.beercount))
