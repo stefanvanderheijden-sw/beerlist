@@ -3,6 +3,7 @@ import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 GPIO.setup(17, GPIO.IN)
+GPIO.setup(27, GPIO.IN)
 
 from time import sleep
 import tkinter as tk
@@ -23,9 +24,18 @@ def sortlist(list):
 def pinDetect(pin):
     global selected
     housemates[selected].deSelect()
-    selected += 1
-    if selected > len(housemates):
-        selected = 0
+
+    pin2 = GPIO.input(27)
+    
+    if pin2:
+        selected += 1
+        if selected > len(housemates):
+            selected = 0
+
+    else:
+        selected -= 1
+        if selected < 0:
+            selected = len(housemates)
 
     housemates[selected].select()
     
