@@ -80,7 +80,7 @@ class housemate:
         self.beerVar = tk.StringVar(0)
         self.name = name
         self.beercount = beercount
-        self.label = tk.Label(window, text=self.name, width =  "15", background="white", anchor="w")
+        self.label = tk.Label(window, text=self.name, width =  "15", background="white", anchor="w",expand=YES)
         self.labelBeer = tk.Label(window, textvariable=self.beerVar)
         self.row = 0
 
