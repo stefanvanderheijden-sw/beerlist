@@ -5,6 +5,13 @@ GPIO.setwarnings(False)
 GPIO.setup(17, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(27, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
+BUTTON_TOP = 21
+BUTTON_BOTTOM = 20
+
+GPIO.setup(BUTTON_TOP, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(BUTTON_BOTTOM, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+
+
 from time import sleep
 import tkinter as tk
 import operator
@@ -20,6 +27,11 @@ labelList = []
 def sortlist(list):
     list.sort(key=operator.attrgetter('name'))
     return list
+
+def topButton(pin):
+    housemates[selected].addOneBeer()
+    housemates[selected].drawLabelBeer()
+
 
 def pinDetect(pin):
     clkState = GPIO.input(17)
@@ -151,6 +163,7 @@ refreshList()
 clkLastState = GPIO.input(17)
 try:
     GPIO.add_event_detect(17, GPIO.RISING, callback=pinDetect, bouncetime=30)
+    GPIO.add_event_detect(BUTTON_TOP, GPIO.FALLING, callback=topButton, bouncetime=50)
 except:
     print("not currently running on a RPI 2")
 
