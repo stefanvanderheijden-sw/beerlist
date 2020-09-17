@@ -1,27 +1,144 @@
-import RPi.GPIO as GPIO
+try:
+    import RPI.GPIO as GPIO
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setwarnings(False)
+    GPIO.setup(17, GPIO.IN)
+except:
+    print("not currently running on a RPI")
 from time import sleep
- 
-GPIO.setmode(GPIO.BCM)
-GPIO.setwarnings(False)
-GPIO.setup(17, GPIO.IN)
-counter = 0
-def pinDetect(pin):
-    global counter
-    counter += 1
-    print("pin pushed")
-    print("counter: " + str(counter))
- 
-def loop():
-  try:
-    raw_input()
-  # Wanneer er op CTRL+C gedrukt wordt.
-  except KeyboardInterrupt:  
-    # GPIO netjes afsluiten
-    GPIO.cleanup() 
- 
-# Zet de GPIO pin als ingang.
+import tkinter as tk
+import operator
 
-# Gebruik een interrupt, wanneer actief run subroutinne 'gedrukt'
-GPIO.add_event_detect(17, GPIO.RISING, callback=pinDetect, bouncetime=100)
- 
-loop()
+window = tk.Tk()
+greeting = tk.Label(text="Hello, Tkinter")
+counter = 0
+selected = 0
+
+housemates = []
+labelList = []
+
+def sortlist(list):
+    list.sort(key=operator.attrgetter('name'))
+    return list
+
+def pinDetect(pin):
+    global selected
+    housemates[selected].deSelect()
+    selected += 1
+    if selected > len(housemates):
+        selected = 0
+
+    housemates[selected].select()
+    
+
+def refreshList():
+    global housemates
+    housemates = sortlist(housemates)
+    for i in range(len(housemates)):
+        housemates[i].setRow(i)
+        housemates[i].refreshLabel()
+    refreshBeerList()
+        
+
+def refreshBeerList():
+    for housemate in housemates:
+        housemate.drawLabelBeer()
+
+class housemate:
+    def __init__(self, name, beercount):
+        self.beerVar = tk.StringVar(0)
+        self.name = name
+        self.beercount = beercount
+        self.label = tk.Label(window, text=self.name, width =  "15", background="white", anchor="w")
+        self.labelBeer = tk.Label(window, textvariable=self.beerVar)
+        self.row = 0
+
+    def addOneBeer(self):
+        self.beercount += 1
+
+    def substractOneBeer(self):
+        self.beercount -= 1
+    
+    def setBeerCount(self, count):
+        self.beercount = count
+
+    def setRow(self, row):
+        self.row = row
+
+    def refreshLabel(self):
+        self.label.grid_forget()
+        self.drawLabel()
+    
+    def drawLabel(self):
+        self.label.grid(row = self.row, column=1, sticky = "w")
+
+    def drawLabelBeer(self):
+        self.beerVar.set(str(self.beercount))
+        self.labelBeer.grid(row = self.row, column=2)
+
+    def drawBeers(self):
+        self.labelBeer.grid_forget()
+        self.drawLabel()
+
+    def selfDestruct(self):
+        global housemates
+        
+        self.label.grid_forget()
+        self.labelBeer.grid_forget()
+
+        housemates.pop(self.row)
+    
+    def select(self):
+        self.label.config(bg="gray")
+
+    def deSelect(self):
+        self.label.config(bg="white")
+
+housemates.append(housemate("Florine",0))
+housemates.append(housemate("Starr & Lance",0))
+housemates.append(housemate("A3",0))
+housemates.append(housemate("Alex",0))
+housemates.append(housemate("Martijn",0))
+housemates.append(housemate("Abel",0))
+housemates.append(housemate("Jonah",0))
+housemates.append(housemate("Kalea",0))
+housemates.append(housemate("Merel",0))
+housemates.append(housemate("Stefan",0))
+housemates.append(housemate("Johanna",0))
+housemates.append(housemate("Salvador & Anita",0))
+housemates.append(housemate("Lara",0))
+housemates.append(housemate("Larisa",0))
+housemates.append(housemate("Kyra & Wouter",0))
+housemates.append(housemate("Bas",0))
+housemates.append(housemate("Isa",0))
+housemates.append(housemate("Barbara & Max",0))
+housemates.append(housemate("Bianca",0))
+housemates.append(housemate("Vita",0))
+housemates.append(housemate("Marice",0))
+housemates.append(housemate("Bastian",0))
+housemates.append(housemate("Barbara jr",0))
+housemates.append(housemate("Rik & Amber",0))
+housemates.append(housemate("Sven",0))
+housemates.append(housemate("House",0))
+
+refreshList()
+
+
+
+housemates[10].setBeerCount(12)
+
+refreshBeerList()
+
+housemates.append(housemate("AARON",1))
+
+refreshList()
+
+
+
+
+try:
+    GPIO.add_event_detect(17, GPIO.RISING, callback=pinDetect, bouncetime=100)
+except:
+    print("not currently running on a RPI")
+
+window.mainloop()
