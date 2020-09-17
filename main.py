@@ -166,7 +166,7 @@ refreshList()
 
 
 try:
-    GPIO.add_event_detect(17, GPIO.FALLING, callback=pinDetect, bouncetime=0)
+    GPIO.add_event_detect(17, GPIO.FALLING, callback=pinDetect, bouncetime=1)
 except:
     print("not currently running on a RPI 2")
 
