@@ -5,6 +5,7 @@ GPIO.setwarnings(False)
 GPIO.setup(17, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(27, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
+
 BUTTON_TOP = 20
 BUTTON_BOTTOM = 21
 
@@ -17,6 +18,7 @@ import tkinter as tk
 import operator
 
 window = tk.Tk()
+window.attributes("-fullscreen", True)
 greeting = tk.Label(text="Hello, Tkinter")
 counter = 0
 selected = 0
