@@ -4,9 +4,12 @@ from time import sleep
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 GPIO.setup(17, GPIO.IN)
- 
+counter = 0
 def pinDetect(pin):
-  print("pin pushed")
+    global counter
+    counter += 1
+    print("pin pushed")
+    print("counter: " + str(counter))
  
 def loop():
   try:
