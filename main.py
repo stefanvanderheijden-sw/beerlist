@@ -169,12 +169,12 @@ def add_housemate_csv(name):
         housemates_csv.close()  
 
 def remove_housemate_csv(name):
-    with open('/home/pi/Script/Beerlist/housemates.csv', mode='r') as housemates_csv:
+    with open('/home/pi/Script/Beerlist/housemates.csv', mode='a') as housemates_csv:
         housemate_write = csv.writer(housemates_csv, delimiter=',')
         for row in housemate_write:
             if row[0] != name:
                 housemate_write(row)
-        housemates_csv.close()      
+    housemates_csv.close()      
 
 read_housemate_csv()
 
