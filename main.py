@@ -158,7 +158,7 @@ def read_housemate_csv():
                 if housemates[i].name == row[0]:
                     exists = 1
             if exists == 0:
-                housemates[i].pop
+                housemates.pop(i)
         housemates_csv.close()  
 
 def add_housemate_csv(name):
