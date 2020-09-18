@@ -170,7 +170,7 @@ def add_housemate_csv(name):
 
 def remove_housemate_csv(name):
     with open('/home/pi/Script/Beerlist/housemates.csv', mode='r') as housemates_csv:
-        housemate_write = csv.reader(housemates_csv, delimiter=',')
+        housemate_write = csv.writer(housemates_csv, delimiter=',')
         for row in housemate_write:
             if row[0] != name:
                 housemate_write(row)
