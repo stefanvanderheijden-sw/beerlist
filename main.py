@@ -141,11 +141,13 @@ def write_to_csv():
 def read_housemate_csv():
     with open('/home/pi/Script/Beerlist/housemates.csv', mode='r') as housemates_csv:
         csv_reader = csv.reader(housemates_csv, delimiter=',')
+        
         for row in csv_reader:
             for housemate in housemates:
                 exists = False
                 if housemate.name == row[0]:
                     exists = True
+                    print(housemate.name + " already exists")
                 if (exists == False):
                     housemates.append(housemate(row[0],0))
         housemates_csv.close()  
