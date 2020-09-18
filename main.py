@@ -165,15 +165,15 @@ read_housemate_csv()
 
 refreshList()
 
-# refreshBeerList()
+refreshBeerList()
 
-# refreshList()
+refreshList()
 
-# add_housemate_csv("HENNY")
+add_housemate_csv("Freekje")
 
-# read_housemate_csv()
+read_housemate_csv()
 
-# refreshList()
+refreshList()
 
 clkLastState = GPIO.input(17)
 try:
