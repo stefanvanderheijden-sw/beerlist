@@ -145,7 +145,7 @@ def read_housemate_csv():
             housemates.append(housemate(row[0],0))
 
 def add_housemate_csv(name):
-    with open('/home/pi/Script/Beerlist/housemates.csv', mode='w') as housemates_csv:
+    with open('/home/pi/Script/Beerlist/housemates.csv', mode='a') as housemates_csv:
         housemate_write = csv.writer(housemates_csv, delimiter=',', quotechar='”', quoting=csv.QUOTE_MINIMAL)
         write_housemate_to_csv = housemate_write.writerow([name])
     return(write_housemate_to_csv)    
