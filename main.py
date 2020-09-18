@@ -159,7 +159,8 @@ def read_housemate_csv():
                 if currentHousemate.name == row[0]:
                     exists = 1
                     print("housemate " + currentHousemate.name + " exists in the CSV file")
-
+            if exists == 1:
+                print("housemate " + currentHousemate.name + " does no longer exist in the CSV")
         housemates_csv.close()  
 
 def add_housemate_csv(name):
