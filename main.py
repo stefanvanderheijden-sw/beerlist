@@ -151,8 +151,8 @@ def read_housemate_csv():
                     exists2 = 1
                     exists = 1
                     print(oldhousemate.name + " already exists")
-                if exists2 == 0:
-                    print("this housemate exists in the list but not in the CSV!!!!!!")
+            if exists2 == 0:
+                print("this housemate exists in the list but not in the CSV!!!!!!")
             if exists == 0:
                 housemates.append(housemate(row[0],0))
         # for currentHousemate in housemates:
