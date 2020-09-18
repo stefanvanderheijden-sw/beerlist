@@ -142,13 +142,18 @@ def read_housemate_csv():
     with open('/home/pi/Script/Beerlist/housemates.csv', mode='r') as housemates_csv:
         csv_reader = csv.reader(housemates_csv, delimiter=',')
         for row in csv_reader:
-            housemates.append(housemate(row[0],0))
+            for housemate in housemates:
+                exists = False
+                if housemate.name == row[0]:
+                    exists = True
+                if (exists == False):
+                    housemates.append(housemate(row[0],0))
         housemates_csv.close()  
 
 def add_housemate_csv(name):
     with open('/home/pi/Script/Beerlist/housemates.csv', mode='a') as housemates_csv:
         housemate_write = csv.writer(housemates_csv, delimiter=',', quotechar='”', quoting=csv.QUOTE_MINIMAL)
-        write_housemate_to_csv = housemate_write.writerow([name])
+        housemate_write.writerow([name])
         housemates_csv.close()  
      
 
