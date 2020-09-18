@@ -144,11 +144,11 @@ def read_housemate_csv():
         
         for row in csv_reader:
             for housemate in housemates:
-                exists = False
+                exists = 0
                 if housemate.name == row[0]:
-                    exists = True
+                    exists = 1
                     print(housemate.name + " already exists")
-                if (exists == False):
+                if exists == 0:
                     housemates.append(housemate(row[0],0))
         housemates_csv.close()  
 
@@ -163,15 +163,15 @@ read_housemate_csv()
 
 refreshList()
 
-refreshBeerList()
+# refreshBeerList()
 
-refreshList()
+# refreshList()
 
-add_housemate_csv("HENNY")
+# add_housemate_csv("HENNY")
 
-read_housemate_csv()
+# read_housemate_csv()
 
-refreshList()
+# refreshList()
 
 clkLastState = GPIO.input(17)
 try:
