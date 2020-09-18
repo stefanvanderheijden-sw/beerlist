@@ -92,7 +92,8 @@ def write_to_csv():
 def read_housemate_csv():
     with open('/home/pi/Script/Beerlist/housemates.csv', mode='r') as housemates_csv:
         csv_reader = csv.reader(housemates_csv, delimiter=',')
-        print(csv_reader)
+        for row in csv_reader:
+            print(row[0])
         
 read_housemate_csv()
 
