@@ -26,7 +26,7 @@ import operator
 import csv
 
 window = tk.Tk()
-window.attributes("-fullscreen", True)
+#window.attributes("-fullscreen", True)
 greeting = tk.Label(text="Hello, Tkinter")
 counter = 0
 selected = 0
@@ -89,7 +89,13 @@ def write_to_csv():
         write_to_log = beerList_write.writerow(["Test object 1","Test object 2","Test object 3"])
     return(write_to_log)
 
-write_to_csv()
+def read_housemate_csv():
+    with open('/home/pi/Script/Beerlist/housemates.csv', mode='r') as housemates_csv:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+        print(csv_reader)
+        
+read_housemate_csv()
+
 
 class housemate:
     def __init__(self, name, beercount):
