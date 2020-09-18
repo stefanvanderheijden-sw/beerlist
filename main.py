@@ -156,6 +156,7 @@ def read_housemate_csv():
             print("found a housemate")
             exists = 0
             for row in csv_reader:
+                print("found a row in the row reading stuff")
                 if currentHousemate.name == row[0]:
                     exists = 1
                     print("housemate " + currentHousemate.name + " exists in the CSV file")
