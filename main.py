@@ -190,7 +190,7 @@ read_housemate_csv()
 
 refreshList()
 
-# remove_housemate_csv("Stefan")
+remove_housemate_csv("Stefan")
 
 read_housemate_csv()
 
