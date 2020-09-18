@@ -153,6 +153,7 @@ def read_housemate_csv():
             if exists == 0:
                 housemates.append(housemate(row[0],0))
         for i in range(len(housemates)):
+            print("found a housemate")
             exists = 0
             for row in csv_reader:
                 if housemates[i].name == row[0]:
