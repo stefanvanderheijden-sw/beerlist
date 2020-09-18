@@ -84,8 +84,8 @@ def refreshBeerList():
 
 def write_to_csv():
 # the a is for append, if w for write is used then it overwrites the file
-    with open(‘/home/pi/Script/Beerlist/BeerListData.csv’, mode=’a’) as beerListData:
-        beerList_write = csv.writer(beerListData, delimiter=’,’, quotechar='”‘, quoting=csv.QUOTE_MINIMAL)
+    with open('/home/pi/Script/Beerlist/BeerListData.csv', mode='a') as beerListData:
+        beerList_write = csv.writer(beerListData, delimiter=',', quotechar='”', quoting=csv.QUOTE_MINIMAL)
         write_to_log = beerList_write.writerow(["Test object 1","Test object 2","Test object 3"])
     return(write_to_log)
 
