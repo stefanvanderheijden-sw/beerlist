@@ -152,6 +152,13 @@ def read_housemate_csv():
                     print(oldhousemate.name + " already exists")
             if exists == 0:
                 housemates.append(housemate(row[0],0))
+        for i in range(len(housemates)):
+            exists = 0
+            for row in csv_reader:
+                if housemates[i].name == row[0]:
+                    exists = 1
+            if exists == 0:
+                housemates[i].pop
         housemates_csv.close()  
 
 def add_housemate_csv(name):
@@ -159,7 +166,14 @@ def add_housemate_csv(name):
         housemate_write = csv.writer(housemates_csv, delimiter=',', quotechar='”', quoting=csv.QUOTE_MINIMAL)
         housemate_write.writerow([name])
         housemates_csv.close()  
-     
+
+def remove_housemate_csv(name):
+    with open('/home/pi/Script/Beerlist/housemates.csv', mode='r') as housemates_csv:
+        housemate_write = csv.writer(housemates_csv, delimiter=',', quotechar='”', quoting=csv.QUOTE_MINIMAL)
+        for row in housemate_write:
+            if row[0] != name:
+                housemate_write(row)
+        housemates_csv.close()      
 
 read_housemate_csv()
 
@@ -170,6 +184,12 @@ refreshBeerList()
 refreshList()
 
 add_housemate_csv("Freekje")
+
+read_housemate_csv()
+
+refreshList()
+
+remove_housemate_csv("Stefan")
 
 read_housemate_csv()
 
