@@ -81,23 +81,6 @@ def refreshBeerList():
     for housemate in housemates:
         housemate.drawLabelBeer()
 
-
-def write_to_csv():
-# the a is for append, if w for write is used then it overwrites the file
-    with open('/home/pi/Script/Beerlist/BeerListData.csv', mode='a') as beerListData:
-        beerList_write = csv.writer(beerListData, delimiter=',', quotechar='”', quoting=csv.QUOTE_MINIMAL)
-        write_to_log = beerList_write.writerow(["Test object 1","Test object 2","Test object 3"])
-    return(write_to_log)
-
-def read_housemate_csv():
-    with open('/home/pi/Script/Beerlist/housemates.csv', mode='r') as housemates_csv:
-        csv_reader = csv.reader(housemates_csv, delimiter=',')
-        for row in csv_reader:
-            print(row[0])
-        
-read_housemate_csv()
-
-
 class housemate:
     def __init__(self, name, beercount):
         self.beerVar = tk.StringVar(0)
@@ -148,32 +131,50 @@ class housemate:
     def deSelect(self):
         self.label.config(bg="white")
 
-housemates.append(housemate("Florine",0))
-housemates.append(housemate("Starr & Lance",0))
-housemates.append(housemate("A3",0))
-housemates.append(housemate("Alex",0))
-housemates.append(housemate("Martijn",0))
-housemates.append(housemate("Abel",0))
-housemates.append(housemate("Jonah",0))
-housemates.append(housemate("Kalea",0))
-housemates.append(housemate("Merel",0))
-housemates.append(housemate("Stefan",0))
-housemates.append(housemate("Johanna",0))
-housemates.append(housemate("Salvador & Anita",0))
-housemates.append(housemate("Lara",0))
-housemates.append(housemate("Larisa",0))
-housemates.append(housemate("Kyra & Wouter",0))
-housemates.append(housemate("Bas",0))
-housemates.append(housemate("Isa",0))
-housemates.append(housemate("Barbara & Max",0))
-housemates.append(housemate("Bianca",0))
-housemates.append(housemate("Vita",0))
-housemates.append(housemate("Marice",0))
-housemates.append(housemate("Bastian",0))
-housemates.append(housemate("Barbara jr",0))
-housemates.append(housemate("Rik & Amber",0))
-housemates.append(housemate("Sven",0))
-housemates.append(housemate("House",0))
+def write_to_csv():
+# the a is for append, if w for write is used then it overwrites the file
+    with open('/home/pi/Script/Beerlist/BeerListData.csv', mode='a') as beerListData:
+        beerList_write = csv.writer(beerListData, delimiter=',', quotechar='”', quoting=csv.QUOTE_MINIMAL)
+        write_to_log = beerList_write.writerow(["Test object 1","Test object 2","Test object 3"])
+    return(write_to_log)
+
+def read_housemate_csv():
+    with open('/home/pi/Script/Beerlist/housemates.csv', mode='r') as housemates_csv:
+        csv_reader = csv.reader(housemates_csv, delimiter=',')
+        for row in csv_reader:
+            housemates.append(housemate(row[0],0))
+        
+read_housemate_csv()
+
+
+
+
+# housemates.append(housemate("Florine",0))
+# housemates.append(housemate("Starr & Lance",0))
+# housemates.append(housemate("A3",0))
+# housemates.append(housemate("Alex",0))
+# housemates.append(housemate("Martijn",0))
+# housemates.append(housemate("Abel",0))
+# housemates.append(housemate("Jonah",0))
+# housemates.append(housemate("Kalea",0))
+# housemates.append(housemate("Merel",0))
+# housemates.append(housemate("Stefan",0))
+# housemates.append(housemate("Johanna",0))
+# housemates.append(housemate("Salvador & Anita",0))
+# housemates.append(housemate("Lara",0))
+# housemates.append(housemate("Larisa",0))
+# housemates.append(housemate("Kyra & Wouter",0))
+# housemates.append(housemate("Bas",0))
+# housemates.append(housemate("Isa",0))
+# housemates.append(housemate("Barbara & Max",0))
+# housemates.append(housemate("Bianca",0))
+# housemates.append(housemate("Vita",0))
+# housemates.append(housemate("Marice",0))
+# housemates.append(housemate("Bastian",0))
+# housemates.append(housemate("Barbara jr",0))
+# housemates.append(housemate("Rik & Amber",0))
+# housemates.append(housemate("Sven",0))
+# housemates.append(housemate("House",0))
 
 refreshList()
 
