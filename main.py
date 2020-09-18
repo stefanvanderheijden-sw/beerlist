@@ -144,12 +144,13 @@ def read_housemate_csv():
         
         for row in csv_reader:
             print("found a row with name: " +row[0])
+            exists = 0
             for housemate in housemates:
-                exists = 0
+                
                 if housemate.name == row[0]:
                     exists = 1
                     print(housemate.name + " already exists")
-                if exists == 0:
+            if exists == 0:
                     housemates.append(housemate(row[0],0))
         housemates_csv.close()  
 
