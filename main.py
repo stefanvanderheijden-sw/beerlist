@@ -162,7 +162,7 @@ class housemate:
         self.drawLabel()
     
     def drawLabel(self):
-        self.label = tk.Label(leftColumn, text=self.name, width =  "15",height= "1", background=backgroundCLR, anchor="w")
+        self.label = tk.Label(leftColumn, text=self.name, width =  "15",height= "1", background=backgroundCLR, anchor="w", font = ('Comic Sans MS',12))
         self.label.grid(row = self.row, column=1, sticky = "w",pady="4")
 
     def drawLabelBeer(self):
