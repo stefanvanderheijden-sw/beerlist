@@ -59,8 +59,8 @@ rightTopButtonLabel.pack()
 rightBottomButtonLabel.pack()
 
 
-topButton.set("ONE BEER")
-bottomButton.set("MENU")
+topButtonVar.set("ONE BEER")
+bottomButtonVar.set("MENU")
 
 greeting = tk.Label(text="Hello, Tkinter")
 counter = 0
