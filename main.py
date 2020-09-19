@@ -53,6 +53,7 @@ def topButton(pin):
 def bottomButton(pin):
     housemates[selected].substractOneBeer()
     housemates[selected].drawLabelBeer()
+    add_housemate_csv("Nieuw Housemate")
 
 
 def pinDetect(pin):
@@ -189,7 +190,8 @@ def add_housemate_csv(name):
         with open('/home/pi/Script/Beerlist/housemates.csv', mode='a') as housemates_csv:
             housemate_write = csv.writer(housemates_csv, delimiter=',', quotechar='”', quoting=csv.QUOTE_MINIMAL)
             housemate_write.writerow([name])
-        housemates_csv.close()  
+        housemates_csv.close()
+    read_housemate_csv()  
 
 def remove_housemate_csv(name):
     lines = list()
@@ -205,7 +207,8 @@ def remove_housemate_csv(name):
         writer = csv.writer(writeFile)
         writer.writerows(lines)
 
-    writeFile.close     
+    writeFile.close
+    read_housemate_csv()     
 
 read_housemate_csv()
 
@@ -213,7 +216,7 @@ read_housemate_csv()
 # add_housemate_csv("Stefan2")
 # add_housemate_csv("Stefan3")
 
-read_housemate_csv()
+
 
 remove_housemate_csv("Stefan")
 remove_housemate_csv("A3")
@@ -222,7 +225,7 @@ remove_housemate_csv("Lara")
 remove_housemate_csv("Sven")
 remove_housemate_csv("House")
 
-read_housemate_csv()
+
 
 clkLastState = GPIO.input(17)
 try:
