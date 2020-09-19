@@ -11,7 +11,7 @@ except:
 BUTTON_TOP = 20
 BUTTON_BOTTOM = 21
 
-backgroundCLR = "black"
+backgroundCLR = "grey20"
 backgroundCLR2 = "grey20"
 selectCLR = "green2"
 fontColorCLR = "green2"
