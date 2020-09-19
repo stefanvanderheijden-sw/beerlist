@@ -12,7 +12,7 @@ BUTTON_TOP = 20
 BUTTON_BOTTOM = 21
 
 backgroundCLR = "white"
-backgroundCLR2 = "light cyan"
+backgroundCLR2 = "black"
 selectCLR = "turquoise"
 
 try:
