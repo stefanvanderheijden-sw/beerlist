@@ -27,6 +27,7 @@ from time import sleep
 import tkinter as tk
 import operator
 import csv
+import sys
 
 buzzer = Buzzer(16)
 
@@ -43,6 +44,12 @@ selected = 0
 
 housemates = []
 labelList = []
+
+def buttonFunction():
+    sys.exit()
+
+B = tk.Button(top, text ="Exit", command = buttonFunction)
+B.pack(window)
 
 def sortlist(list):
     list.sort(key=operator.attrgetter('name'))
