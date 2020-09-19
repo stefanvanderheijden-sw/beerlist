@@ -174,6 +174,7 @@ def add_housemate_csv(name):
         housemates_csv.close()  
 
 def remove_housemate_csv(name):
+    lines = list()
     with open('/home/pi/Script/Beerlist/housemates.csv', 'r') as readFile:
         reader = csv.reader(readFile)
         for row in reader:
