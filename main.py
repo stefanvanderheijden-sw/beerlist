@@ -168,10 +168,15 @@ def read_housemate_csv():
           
 
 def add_housemate_csv(name):
-    with open('/home/pi/Script/Beerlist/housemates.csv', mode='a') as housemates_csv:
-        housemate_write = csv.writer(housemates_csv, delimiter=',', quotechar='”', quoting=csv.QUOTE_MINIMAL)
-        housemate_write.writerow([name])
-        housemates_csv.close()  
+    exist = 0
+    for housemate in housemates:
+        if housemate.name == name:
+            exist = 1
+    if exist == 0:
+        with open('/home/pi/Script/Beerlist/housemates.csv', mode='a') as housemates_csv:
+            housemate_write = csv.writer(housemates_csv, delimiter=',', quotechar='”', quoting=csv.QUOTE_MINIMAL)
+            housemate_write.writerow([name])
+            housemates_csv.close()  
 
 def remove_housemate_csv(name):
     lines = list()
