@@ -140,26 +140,29 @@ def write_to_csv():
 
 def read_housemate_csv():
     global housemates
+    tempCsvHousemates = []
     with open('/home/pi/Script/Beerlist/housemates.csv', mode='r') as housemates_csv:
         csv_reader = csv.reader(housemates_csv, delimiter=',')
         for row in csv_reader:
-            exists = 0
-            for oldhousemate in housemates:
-                if oldhousemate.name == row[0]:
-                    exists = 1
-                    print(oldhousemate.name + " already exists")
-            if exists == 0:
-                housemates.append(housemate(row[0],0))
-
-    with open('/home/pi/Script/Beerlist/housemates.csv', mode='r') as housemates_csv:   
-        temphousemates = []
-        for newhousemate in housemates:
-            for row in csv_reader:
-                print("looking at housemate " +housemate.name + "and csv name " + row[0])
-                if row[0] == newhousemate.name:
-                    print("found a housemate in the csv file with the same name")
-                    temphousemates.append(newhousemate)
-
+            tempCsvHousemates.append(row[0])
+    
+    for tempCsvHousemate in tempCsvHousemates:        
+        exists = 0
+        for oldhousemate in housemates:
+            if oldhousemate.name == tempCsvHousemate:
+                exists = 1
+                print(oldhousemate.name + " already exists")
+        if exists == 0:
+            housemates.append(housemate(tempCsvHousemate,0))
+        
+        # temphousemates = []
+        # for newhousemate in housemates:
+        #     for row in csv_reader:
+        #         print("looking at housemate " +housemate.name + "and csv name " + row[0])
+        #         if row[0] == newhousemate.name:
+        #             print("found a housemate in the csv file with the same name")
+        #             temphousemates.append(newhousemate)
+        # housemates_csv.close()
     housemates = temphousemates
 
           
