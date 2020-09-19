@@ -20,6 +20,7 @@ try:
 except:
     print("not on RPI 2")
 
+from gpiozero import Buzzer
 import time
 import datetime
 from time import sleep
@@ -27,6 +28,7 @@ import tkinter as tk
 import operator
 import csv
 
+buzzer = Buzzer(16)
 
 
 window = tk.Tk()
@@ -49,11 +51,11 @@ def sortlist(list):
 def topButton(pin):
     housemates[selected].addOneBeer()
     housemates[selected].drawLabelBeer()
+    buzzer.beep(on_time=1, off_time=1, n=1, background=True)
 
 def bottomButton(pin):
     housemates[selected].substractOneBeer()
     housemates[selected].drawLabelBeer()
-    add_housemate_csv("Nieuw Housemate")
 
 
 def pinDetect(pin):
@@ -216,16 +218,12 @@ read_housemate_csv()
 # add_housemate_csv("Stefan2")
 # add_housemate_csv("Stefan3")
 
-
-
 remove_housemate_csv("Stefan")
 remove_housemate_csv("A3")
 remove_housemate_csv("Bastian")
 remove_housemate_csv("Lara")
 remove_housemate_csv("Sven")
 remove_housemate_csv("House")
-
-
 
 clkLastState = GPIO.input(17)
 try:
