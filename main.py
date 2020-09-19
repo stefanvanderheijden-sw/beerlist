@@ -158,7 +158,7 @@ def read_housemate_csv():
     temphousemates = []
     for newhousemate in housemates:
         for tempCsvHousemate in tempCsvHousemates:
-            print("looking at housemate " +housemate.name + "and csv name " + row[0])
+            print("looking at housemate " +newhousemate.name + "and csv name " + row[0])
             if tempCsvHousemate == newhousemate.name:
                 print("found a housemate in the csv file with the same name")
                 temphousemates.append(newhousemate)
