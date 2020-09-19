@@ -163,7 +163,7 @@ def read_housemate_csv():
         #             print("found a housemate in the csv file with the same name")
         #             temphousemates.append(newhousemate)
         # housemates_csv.close()
-    housemates = temphousemates
+    # housemates = temphousemates
 
           
 
