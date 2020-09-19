@@ -151,7 +151,15 @@ def read_housemate_csv():
                     print(oldhousemate.name + " already exists")
             if exists == 0:
                 housemates.append(housemate(row[0],0))
-        housemates_csv.close()  
+        temphousemates = []
+        for newhousemate in housemates:
+            for row in csv_reader:
+                if row[0] == newhousemate.name:
+                    temphousemates.append(newhousemate)
+        housemates_csv.close()
+        housemates = temphousemates
+
+          
 
 def add_housemate_csv(name):
     with open('/home/pi/Script/Beerlist/housemates.csv', mode='a') as housemates_csv:
