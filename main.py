@@ -160,7 +160,7 @@ class housemate:
     
     def drawLabel(self):
         self.label = tk.Label(leftColumn, text=self.name, width =  "15",height= "1", background="white", anchor="w")
-        self.label.grid(row = self.row, column=1, sticky = "w",pady="2")
+        self.label.grid(row = self.row, column=1, sticky = "w",pady="4")
 
     def drawLabelBeer(self):
         self.labelBeer = tk.Label(leftColumn,width =  "4", textvariable=self.beerVar)
