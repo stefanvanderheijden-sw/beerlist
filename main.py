@@ -11,6 +11,8 @@ except:
 BUTTON_TOP = 20
 BUTTON_BOTTOM = 21
 
+
+
 try:
     GPIO.setup(BUTTON_TOP, GPIO.IN, pull_up_down=GPIO.PUD_UP)
     GPIO.setup(BUTTON_BOTTOM, GPIO.IN, pull_up_down=GPIO.PUD_UP)
@@ -25,8 +27,14 @@ import tkinter as tk
 import operator
 import csv
 
+
+
 window = tk.Tk()
 #window.attributes("-fullscreen", True)
+
+leftColumn = tk.Frame(window)
+leftColumn.pack(side="left")
+
 greeting = tk.Label(text="Hello, Tkinter")
 counter = 0
 selected = 0
@@ -86,8 +94,8 @@ class housemate:
         self.beerVar = tk.StringVar(0)
         self.name = name
         self.beercount = beercount
-        self.label = tk.Label(window, text=self.name, width =  "15", background="white", anchor="w")
-        self.labelBeer = tk.Label(window, textvariable=self.beerVar)
+        self.label = tk.Label(leftColumn, text=self.name, width =  "15", background="white", anchor="w")
+        self.labelBeer = tk.Label(leftColumn, textvariable=self.beerVar)
         self.row = 0
 
     def addOneBeer(self):
