@@ -53,7 +53,7 @@ bottomButtonVar = tk.StringVar()
 rightTopButtonLabel = tk.Label(rightTopButtonFrame,textvariable=topButtonVar, width =  "15",height= "2", background="white")
 rightBottomButtonLabel = tk.Label(rightBottomButtonFrame,textvariable=bottomButtonVar, width =  "15",height= "2", background="white")
 
-rightColumn.pack(side="left")
+rightColumn.pack()
 
 rightTopButtonFrame.pack()
 rightBottomButtonFrame.pack()
