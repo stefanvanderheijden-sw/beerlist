@@ -140,7 +140,7 @@ class housemate:
         self.tallyVar = tk.StringVar(0)
         self.name = name
         self.beercount = beercount
-        self.label = tk.Label(leftColumn, text=self.name, width =  "15",height= "1", background=backgroundCLR, anchor="w")
+        self.label = tk.Label(leftColumn, text=self.name, width =  "15",height= "1", background=backgroundCLR, anchor="w",font = ('Noto Mono Regular',12))
         self.labelBeer = tk.Label(leftColumn, textvariable=self.beerVar, background=backgroundCLR)
         self.labelTally = tk.Label(leftColumn, width =  "40",textvariable=self.tallyVar, anchor="w", background=backgroundCLR)
         self.row = 0
@@ -162,7 +162,7 @@ class housemate:
         self.drawLabel()
     
     def drawLabel(self):
-        self.label = tk.Label(leftColumn, text=self.name, width =  "15",height= "1", background=backgroundCLR, anchor="w", font = ('Comic Sans MS',12))
+        self.label = tk.Label(leftColumn, text=self.name, width =  "15",height= "1", background=backgroundCLR, anchor="w", font = ('Noto Mono Regular',12))
         self.label.grid(row = self.row, column=1, sticky = "w",pady="4")
 
     def drawLabelBeer(self):
