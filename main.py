@@ -42,7 +42,7 @@ leftColumn = tk.Frame(window)
 leftColumn.pack(side="left",padx=20)
 
 rightColumn = tk.Frame(window)
-rightColumn.pack(side="right",padx=20)
+
 
 rightTopButtonFrame = tk.Frame(rightColumn)
 rightBottomButtonFrame = tk.Frame(rightColumn)
@@ -52,6 +52,8 @@ bottomButtonVar = tk.StringVar()
 
 rightTopButtonLabel = tk.Label(rightTopButtonFrame,textvariable=topButtonVar, width =  "15",height= "2", background="white")
 rightBottomButtonLabel = tk.Label(rightBottomButtonFrame,textvariable=bottomButtonVar, width =  "15",height= "2", background="white")
+
+rightColumn.pack(side="right",padx=20)
 
 rightTopButtonFrame.pack(pady=200)
 rightBottomButtonFrame.pack(pady=200)
