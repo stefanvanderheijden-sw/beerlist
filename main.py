@@ -142,9 +142,9 @@ class housemate:
         self.tallyVar = tk.StringVar(0)
         self.name = name
         self.beercount = beercount
-        self.label = tk.Label(leftColumn, text=self.name, width =  "15",height= "1", background=backgroundCLR, anchor="w",font = ('FreeMono Bold',12))
-        self.labelBeer = tk.Label(leftColumn, textvariable=self.beerVar, background=backgroundCLR,font = ('FreeMono Bold',12))
-        self.labelTally = tk.Label(leftColumn, width =  "40",textvariable=self.tallyVar, anchor="w", background=backgroundCLR,font = ('FreeMono Bold',12))
+        self.label = tk.Label(leftColumn, text=self.name, width =  "15",height= "1", fg= fontColorCLR, background=backgroundCLR, anchor="w",font = ('Liberation Mono Bold',10))
+        self.labelBeer = tk.Label(leftColumn, textvariable=self.beerVar, fg= fontColorCLR,background=backgroundCLR,font = ('Liberation Mono Bold',10))
+        self.labelTally = tk.Label(leftColumn, width =  "40",textvariable=self.tallyVar, anchor="w", fg= fontColorCLR, background=backgroundCLR,font = ('Liberation Mono Bold',10))
         self.row = 0
 
     def addOneBeer(self):
@@ -164,11 +164,11 @@ class housemate:
         self.drawLabel()
     
     def drawLabel(self):
-        self.label = tk.Label(leftColumn, text=self.name, width =  "15",height= "1", background=backgroundCLR, anchor="w", font = ('FreeMono Bold',12))
+        self.label = tk.Label(leftColumn, text=self.name, width =  "15",height= "1", fg= fontColorCLR, background=backgroundCLR, anchor="w", font = ('Liberation Mono Bold',10))
         self.label.grid(row = self.row, column=1, sticky = "w",pady="4")
 
     def drawLabelBeer(self):
-        self.labelBeer = tk.Label(leftColumn,width =  "4", textvariable=self.beerVar, background=backgroundCLR,font = ('FreeMono Bold',12))
+        self.labelBeer = tk.Label(leftColumn,width =  "4", textvariable=self.beerVar, fg= fontColorCLR, background=backgroundCLR,font = ('Liberation Mono Bold',10))
         self.beerVar.set(str(self.beercount))
         self.labelBeer.grid(row = self.row, column=2)
 
@@ -178,7 +178,7 @@ class housemate:
             tempTally += "|"
 
         self.tallyVar.set(tempTally)
-        self.labelTally = tk.Label(leftColumn, width =  "40",textvariable=self.tallyVar, anchor="w", background=backgroundCLR,font = ('FreeMono Bold',12))
+        self.labelTally = tk.Label(leftColumn, width =  "40",textvariable=self.tallyVar, anchor="w", fg= fontColorCLR, background=backgroundCLR,font = ('Liberation Mono Bold',10))
         self.labelTally.grid(row = self.row, column=3)
 
     def drawBeers(self):
