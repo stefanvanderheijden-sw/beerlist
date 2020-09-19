@@ -36,7 +36,7 @@ buzzer = Buzzer(16)
 
 window = tk.Tk()
 window.attributes("-fullscreen", True)
-window.configure(bg="light cyan")
+window.configure(bg=backgroundCLR2)
 
 topColumn = tk.Frame(window)
 topColumn.pack()
