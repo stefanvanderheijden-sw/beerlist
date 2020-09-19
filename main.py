@@ -113,7 +113,7 @@ class housemate:
         self.row = row
 
     def refreshLabel(self):
-        self.label.grid_forget()
+        #self.label.grid_forget()
         self.drawLabel()
     
     def drawLabel(self):
