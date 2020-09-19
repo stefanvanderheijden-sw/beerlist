@@ -137,7 +137,7 @@ class housemate:
         self.beercount = beercount
         self.label = tk.Label(leftColumn, text=self.name, width =  "15",height= "2", background="white", anchor="w")
         self.labelBeer = tk.Label(leftColumn, textvariable=self.beerVar)
-        self.labelTally = tk.Label(leftColumn, width =  "40",textvariable=self.tallyVar, anchor="w")
+        self.labelTally = tk.Label(leftColumn, width =  "30",textvariable=self.tallyVar, anchor="w")
         self.row = 0
 
     def addOneBeer(self):
