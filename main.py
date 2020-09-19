@@ -12,7 +12,7 @@ BUTTON_TOP = 20
 BUTTON_BOTTOM = 21
 
 backgroundCLR = "white"
-selectCLR = "red"
+selectCLR = "turquoise"
 
 try:
     GPIO.setup(BUTTON_TOP, GPIO.IN, pull_up_down=GPIO.PUD_UP)
@@ -35,6 +35,7 @@ buzzer = Buzzer(16)
 
 window = tk.Tk()
 window.attributes("-fullscreen", True)
+window.configure(bg="light cyan")
 
 topColumn = tk.Frame(window)
 topColumn.pack()
