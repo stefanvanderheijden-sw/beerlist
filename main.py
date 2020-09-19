@@ -101,10 +101,12 @@ def refreshBeerList():
 class housemate:
     def __init__(self, name, beercount):
         self.beerVar = tk.StringVar(0)
+        self.tallyVar = tk.StringVar(0)
         self.name = name
         self.beercount = beercount
         self.label = tk.Label(leftColumn, text=self.name, width =  "15",height= "2", background="white", anchor="w")
         self.labelBeer = tk.Label(leftColumn, textvariable=self.beerVar)
+        self.labelTally = tk.Label(leftColumn, width =  "40",textvariable=self.tallyVar)
         self.row = 0
 
     def addOneBeer(self):
@@ -131,6 +133,14 @@ class housemate:
         self.labelBeer = tk.Label(leftColumn, textvariable=self.beerVar)
         self.beerVar.set(str(self.beercount))
         self.labelBeer.grid(row = self.row, column=2)
+
+        tempTally = ""
+
+        for i in range(len(self.beercount)):
+            tempTally += "|"
+
+        self.labelTally = tk.Label(leftColumn, width =  "40",textvariable=self.tallyVar)
+        self.labelTally.grid(row = self.row, column=3)
 
     def drawBeers(self):
         # self.labelBeer.grid_forget()
