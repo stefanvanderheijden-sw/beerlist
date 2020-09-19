@@ -192,9 +192,11 @@ class housemate:
     
     def select(self):
         self.label.config(bg=selectCLR)
+        self.label.config(fg=backgroundCLR)
 
     def deSelect(self):
         self.label.config(bg=backgroundCLR)
+        self.label.config(bg=fontColorCLR)
 
 def write_to_csv():
 # the a is for append, if w for write is used then it overwrites the file
