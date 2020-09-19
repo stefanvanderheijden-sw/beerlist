@@ -48,8 +48,8 @@ labelList = []
 def buttonFunction():
     sys.exit()
 
-B = tk.Button(top, text ="Exit", command = buttonFunction)
-B.pack(window)
+B = tk.Button(window, text ="Exit", command = buttonFunction)
+B.pack()
 
 def sortlist(list):
     list.sort(key=operator.attrgetter('name'))
