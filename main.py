@@ -33,7 +33,7 @@ buzzer = Buzzer(16)
 
 
 window = tk.Tk()
-#window.attributes("-fullscreen", True)
+window.attributes("-fullscreen", True)
 
 leftColumn = tk.Frame(window)
 leftColumn.pack(side="left")
