@@ -56,6 +56,12 @@ bottomButton.set("MENU")
 rightTopButtonLabel = tk.Label(rightTopButtonFrame,text=topButton, width =  "15",height= "2", background="white", anchor="w")
 rightBottomButtonLabel = tk.Label(rightBottomButtonFrame,text=bottomButton, width =  "15",height= "2", background="white", anchor="w")
 
+rightTopButtonFrame.pack(side="right")
+rightBottomButtonFrame.pack(side="right")
+
+rightTopButtonLabel.pack(side="right")
+rightBottomButtonLabel.pack(side="right")
+
 
 greeting = tk.Label(text="Hello, Tkinter")
 counter = 0
