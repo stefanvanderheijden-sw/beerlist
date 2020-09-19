@@ -11,7 +11,8 @@ except:
 BUTTON_TOP = 20
 BUTTON_BOTTOM = 21
 
-
+backgroundCLR = "white"
+selectCLR = "red"
 
 try:
     GPIO.setup(BUTTON_TOP, GPIO.IN, pull_up_down=GPIO.PUD_UP)
@@ -45,14 +46,14 @@ rightColumn = tk.Frame(window, height="700",width="100")
 rightColumn.pack(side="right")
 rightColumn.pack_propagate(0)
 
-rightTopButtonFrame = tk.Frame(rightColumn)
-rightBottomButtonFrame = tk.Frame(rightColumn)
+rightTopButtonFrame = tk.Frame(rightColumn,background=backgroundCLR)
+rightBottomButtonFrame = tk.Frame(rightColumn,background=backgroundCLR)
 
 topButtonVar = tk.StringVar()
 bottomButtonVar = tk.StringVar()
 
-rightTopButtonLabel = tk.Label(rightTopButtonFrame,textvariable=topButtonVar, width =  "15",height= "2", background="white")
-rightBottomButtonLabel = tk.Label(rightBottomButtonFrame,textvariable=bottomButtonVar, width =  "15",height= "2", background="white")
+rightTopButtonLabel = tk.Label(rightTopButtonFrame,textvariable=topButtonVar, width =  "15",height= "2", background=backgroundCLR)
+rightBottomButtonLabel = tk.Label(rightBottomButtonFrame,textvariable=bottomButtonVar, width =  "15",height= "2", background=backgroundCLR)
 
 
 rightTopButtonFrame.pack(side="top")
@@ -137,9 +138,9 @@ class housemate:
         self.tallyVar = tk.StringVar(0)
         self.name = name
         self.beercount = beercount
-        self.label = tk.Label(leftColumn, text=self.name, width =  "15",height= "1", background="white", anchor="w")
-        self.labelBeer = tk.Label(leftColumn, textvariable=self.beerVar)
-        self.labelTally = tk.Label(leftColumn, width =  "40",textvariable=self.tallyVar, anchor="w")
+        self.label = tk.Label(leftColumn, text=self.name, width =  "15",height= "1", background=backgroundCLR, anchor="w")
+        self.labelBeer = tk.Label(leftColumn, textvariable=self.beerVar, background=backgroundCLR)
+        self.labelTally = tk.Label(leftColumn, width =  "40",textvariable=self.tallyVar, anchor="w", background=backgroundCLR)
         self.row = 0
 
     def addOneBeer(self):
@@ -159,11 +160,11 @@ class housemate:
         self.drawLabel()
     
     def drawLabel(self):
-        self.label = tk.Label(leftColumn, text=self.name, width =  "15",height= "1", background="white", anchor="w")
+        self.label = tk.Label(leftColumn, text=self.name, width =  "15",height= "1", background=backgroundCLR, anchor="w")
         self.label.grid(row = self.row, column=1, sticky = "w",pady="4")
 
     def drawLabelBeer(self):
-        self.labelBeer = tk.Label(leftColumn,width =  "4", textvariable=self.beerVar)
+        self.labelBeer = tk.Label(leftColumn,width =  "4", textvariable=self.beerVar, background=backgroundCLR)
         self.beerVar.set(str(self.beercount))
         self.labelBeer.grid(row = self.row, column=2)
 
@@ -173,7 +174,7 @@ class housemate:
             tempTally += "|"
 
         self.tallyVar.set(tempTally)
-        self.labelTally = tk.Label(leftColumn, width =  "40",textvariable=self.tallyVar, anchor="w")
+        self.labelTally = tk.Label(leftColumn, width =  "40",textvariable=self.tallyVar, anchor="w", background=backgroundCLR)
         self.labelTally.grid(row = self.row, column=3)
 
     def drawBeers(self):
@@ -186,10 +187,10 @@ class housemate:
 
     
     def select(self):
-        self.label.config(bg="gray")
+        self.label.config(bg=selectCLR)
 
     def deSelect(self):
-        self.label.config(bg="white")
+        self.label.config(bg=backgroundCLR)
 
 def write_to_csv():
 # the a is for append, if w for write is used then it overwrites the file
