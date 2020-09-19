@@ -55,8 +55,6 @@ rightTopButtonLabel = tk.Label(rightTopButtonFrame,textvariable=topButtonVar, wi
 rightBottomButtonLabel = tk.Label(rightBottomButtonFrame,textvariable=bottomButtonVar, width =  "15",height= "2", background="white")
 
 
-
-
 rightTopButtonFrame.pack(side="top")
 rightBottomButtonFrame.pack(side="bottom")
 
@@ -141,7 +139,7 @@ class housemate:
         self.beercount = beercount
         self.label = tk.Label(leftColumn, text=self.name, width =  "15",height= "2", background="white", anchor="w")
         self.labelBeer = tk.Label(leftColumn, textvariable=self.beerVar)
-        self.labelTally = tk.Label(leftColumn, width =  "30",textvariable=self.tallyVar, anchor="w")
+        self.labelTally = tk.Label(leftColumn, width =  "40",textvariable=self.tallyVar, anchor="w")
         self.row = 0
 
     def addOneBeer(self):
@@ -175,7 +173,7 @@ class housemate:
             tempTally += "|"
 
         self.tallyVar.set(tempTally)
-        self.labelTally = tk.Label(leftColumn, width =  "30",textvariable=self.tallyVar, anchor="w")
+        self.labelTally = tk.Label(leftColumn, width =  "40",textvariable=self.tallyVar, anchor="w")
         self.labelTally.grid(row = self.row, column=3)
 
     def drawBeers(self):
@@ -268,12 +266,12 @@ read_housemate_csv()
 # add_housemate_csv("Stefan2")
 # add_housemate_csv("Stefan3")
 
-remove_housemate_csv("Stefan")
-remove_housemate_csv("A3")
-remove_housemate_csv("Bastian")
-remove_housemate_csv("Lara")
-remove_housemate_csv("Sven")
-remove_housemate_csv("House")
+# remove_housemate_csv("Stefan")
+# remove_housemate_csv("A3")
+# remove_housemate_csv("Bastian")
+# remove_housemate_csv("Lara")
+# remove_housemate_csv("Sven")
+# remove_housemate_csv("House")
 
 clkLastState = GPIO.input(17)
 try:
