@@ -56,6 +56,7 @@ def topButton(pin):
 def bottomButton(pin):
     housemates[selected].substractOneBeer()
     housemates[selected].drawLabelBeer()
+    buzzer.beep(on_time=0.2, off_time=1, n=1, background=True)
 
 
 def pinDetect(pin):
