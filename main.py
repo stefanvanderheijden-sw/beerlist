@@ -39,9 +39,9 @@ topColumn = tk.Frame(window,borderwidth = 1,relief=tk.SOLID)
 topColumn.pack()
 
 leftColumn = tk.Frame(window,borderwidth = 1,relief=tk.SOLID)
-leftColumn.pack(side="left",padx=20)
+leftColumn.pack(side="left",padx=10)
 
-rightColumn = tk.Frame(window, height="600",width="10",borderwidth = 1,relief=tk.SOLID)
+rightColumn = tk.Frame(window, height="600",width="40",borderwidth = 1,relief=tk.SOLID)
 rightColumn.pack(side="left")
 rightColumn.pack_propagate(0)
 
@@ -175,7 +175,7 @@ class housemate:
             tempTally += "|"
 
         self.tallyVar.set(tempTally)
-        self.labelTally = tk.Label(leftColumn, width =  "40",textvariable=self.tallyVar, anchor="w")
+        self.labelTally = tk.Label(leftColumn, width =  "30",textvariable=self.tallyVar, anchor="w")
         self.labelTally.grid(row = self.row, column=3)
 
     def drawBeers(self):
