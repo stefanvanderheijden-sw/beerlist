@@ -44,8 +44,8 @@ leftColumn.pack(side="left",padx=20)
 rightColumn = tk.Frame(window,height=500, borderwidth = 1)
 
 
-rightTopButtonFrame = tk.Frame(rightColumn)
-rightBottomButtonFrame = tk.Frame(rightColumn)
+rightTopButtonFrame = tk.Frame(rightColumn, borderwidth = 1)
+rightBottomButtonFrame = tk.Frame(rightColumn, borderwidth = 1)
 
 topButtonVar = tk.StringVar()
 bottomButtonVar = tk.StringVar()
