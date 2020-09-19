@@ -165,7 +165,7 @@ def read_housemate_csv():
                 newhousemate.selfDestruct()
     
     for tempmate in temphousemates:
-        print(tempmate.name + "      " +tempmate.beercount)
+        print(tempmate.name + "      " +str(tempmate.beercount))
 
     housemates = temphousemates
 
