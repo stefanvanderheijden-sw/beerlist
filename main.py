@@ -38,6 +38,25 @@ window.attributes("-fullscreen", True)
 leftColumn = tk.Frame(window)
 leftColumn.pack(side="left")
 
+rightColumn = tk.Frame(window)
+rightColumn.pack(side="right")
+
+rightTopButtonFrame = tk.Frame(rightColumn)
+rightBottomButtonFrame = tk.Frame(rightColumn)
+
+rightColumn.pack(side="right")
+rightColumn.pack(side="right")
+
+topButton = tk.StringVar()
+bottomButton = tk.StringVar()
+
+topButton.set("ONE BEER")
+bottomButton.set("MENU")
+
+rightTopButtonLabel = tk.Label(rightTopButtonFrame,text=topButton, width =  "15",height= "2", background="white", anchor="w")
+rightBottomButtonLabel = tk.Label(rightBottomButtonFrame,text=bottomButton, width =  "15",height= "2", background="white", anchor="w")
+
+
 greeting = tk.Label(text="Hello, Tkinter")
 counter = 0
 selected = 0
