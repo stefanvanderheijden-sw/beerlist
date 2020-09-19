@@ -200,12 +200,16 @@ refreshList()
 
 add_housemate_csv("Stefan")
 add_housemate_csv("Stefan2")
+add_housemate_csv("Stefan3")
+add_housemate_csv("Stefan4")
+add_housemate_csv("Stefan5")
+add_housemate_csv("Stefan6")
 
 read_housemate_csv()
 
 refreshList()
 
-remove_housemate_csv("Stefan")
+remove_housemate_csv("Stefan2")
 
 read_housemate_csv()
 
