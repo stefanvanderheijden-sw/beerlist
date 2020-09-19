@@ -139,6 +139,7 @@ class housemate:
         for i in range(self.beercount):
             tempTally += "|"
 
+        self.tallyVar.set(tempTally)
         self.labelTally = tk.Label(leftColumn, width =  "40",textvariable=self.tallyVar)
         self.labelTally.grid(row = self.row, column=3)
 
