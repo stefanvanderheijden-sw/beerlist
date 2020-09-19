@@ -46,14 +46,11 @@ rightBottomButtonFrame = tk.Frame(rightColumn)
 
 rightColumn.pack(side="right")
 
+topButtonVar = tk.StringVar()
+bottomButtonVar = tk.StringVar()
 
-topButton = tk.StringVar()
-bottomButton = tk.StringVar()
-
-
-
-rightTopButtonLabel = tk.Label(rightTopButtonFrame,textvariable=topButton, width =  "15",height= "2", background="white")
-rightBottomButtonLabel = tk.Label(rightBottomButtonFrame,textvariable=bottomButton, width =  "15",height= "2", background="white")
+rightTopButtonLabel = tk.Label(rightTopButtonFrame,textvariable=topButtonVar, width =  "15",height= "2", background="white")
+rightBottomButtonLabel = tk.Label(rightBottomButtonFrame,textvariable=bottomButtonVar, width =  "15",height= "2", background="white")
 
 rightTopButtonFrame.pack()
 rightBottomButtonFrame.pack()
@@ -75,7 +72,7 @@ labelList = []
 def buttonFunction():
     sys.exit()
 
-B = tk.Button(window, text ="Exit", command = buttonFunction)
+B = tk.Button(rightColumn, text ="Exit", command = buttonFunction)
 B.pack()
 
 def sortlist(list):
