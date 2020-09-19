@@ -77,6 +77,8 @@ def pinDetect(pin):
     housemates[selected].select()
 
 def refreshList():
+    for widget in leftColumn.winfo_children():
+        widget.destroy()
     global housemates
     housemates = sortlist(housemates)
     for i in range(len(housemates)):
