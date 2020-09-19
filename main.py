@@ -12,6 +12,7 @@ BUTTON_TOP = 20
 BUTTON_BOTTOM = 21
 
 backgroundCLR = "white"
+backgroundCLR2 = "light cyan"
 selectCLR = "turquoise"
 
 try:
@@ -40,10 +41,10 @@ window.configure(bg="light cyan")
 topColumn = tk.Frame(window)
 topColumn.pack()
 
-leftColumn = tk.Frame(window)
+leftColumn = tk.Frame(window,background=backgroundCLR2)
 leftColumn.pack(side="left",padx=10)
 
-rightColumn = tk.Frame(window, height="700",width="100")
+rightColumn = tk.Frame(window, height="700",width="100",background=backgroundCLR2)
 rightColumn.pack(side="right")
 rightColumn.pack_propagate(0)
 
