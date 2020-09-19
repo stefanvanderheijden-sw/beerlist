@@ -50,8 +50,7 @@ rightColumn.pack(side="right")
 topButton = tk.StringVar()
 bottomButton = tk.StringVar()
 
-topButton.set("ONE BEER")
-bottomButton.set("MENU")
+
 
 rightTopButtonLabel = tk.Label(rightTopButtonFrame,text=topButton, width =  "15",height= "2", background="white", anchor="w")
 rightBottomButtonLabel = tk.Label(rightBottomButtonFrame,text=bottomButton, width =  "15",height= "2", background="white", anchor="w")
@@ -62,6 +61,9 @@ rightBottomButtonFrame.pack(side="right")
 rightTopButtonLabel.pack(side="right")
 rightBottomButtonLabel.pack(side="right")
 
+
+topButton.set("ONE BEER")
+bottomButton.set("MENU")
 
 greeting = tk.Label(text="Hello, Tkinter")
 counter = 0
