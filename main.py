@@ -45,7 +45,7 @@ rightTopButtonFrame = tk.Frame(rightColumn)
 rightBottomButtonFrame = tk.Frame(rightColumn)
 
 rightColumn.pack(side="right")
-rightColumn.pack(side="right")
+
 
 topButton = tk.StringVar()
 bottomButton = tk.StringVar()
@@ -55,11 +55,11 @@ bottomButton = tk.StringVar()
 rightTopButtonLabel = tk.Label(rightTopButtonFrame,textvariable=topButton, width =  "15",height= "2", background="white")
 rightBottomButtonLabel = tk.Label(rightBottomButtonFrame,textvariable=bottomButton, width =  "15",height= "2", background="white")
 
-rightTopButtonFrame.pack(side="right")
-rightBottomButtonFrame.pack(side="right")
+rightTopButtonFrame.pack()
+rightBottomButtonFrame.pack()
 
-rightTopButtonLabel.pack(side="right")
-rightBottomButtonLabel.pack(side="right")
+rightTopButtonLabel.pack()
+rightBottomButtonLabel.pack()
 
 
 topButton.set("ONE BEER")
