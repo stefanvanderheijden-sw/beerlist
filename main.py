@@ -41,8 +41,8 @@ topColumn.pack()
 leftColumn = tk.Frame(window,borderwidth = 1,relief=tk.SOLID)
 leftColumn.pack(side="left",padx=10)
 
-rightColumn = tk.Frame(window, height="600",width="100",borderwidth = 1,relief=tk.SOLID)
-rightColumn.pack(side="left")
+rightColumn = tk.Frame(window, height="700",width="100",borderwidth = 1,relief=tk.SOLID)
+rightColumn.pack(side="right")
 rightColumn.pack_propagate(0)
 
 rightTopButtonFrame = tk.Frame(rightColumn, borderwidth = 1,relief=tk.SOLID)
@@ -57,8 +57,8 @@ rightBottomButtonLabel = tk.Label(rightBottomButtonFrame,textvariable=bottomButt
 
 
 
-rightTopButtonFrame.pack()
-rightBottomButtonFrame.pack()
+rightTopButtonFrame.pack(side="top")
+rightBottomButtonFrame.pack(side="bottom")
 
 rightTopButtonLabel.pack()
 rightBottomButtonLabel.pack()
