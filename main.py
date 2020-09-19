@@ -51,7 +51,7 @@ def sortlist(list):
 def topButton(pin):
     housemates[selected].addOneBeer()
     housemates[selected].drawLabelBeer()
-    buzzer.beep(on_time=0.01, off_time=1, n=1, background=True)
+    buzzer.beep(on_time=0.05, off_time=1, n=1, background=True)
 
 def bottomButton(pin):
     housemates[selected].substractOneBeer()
@@ -67,11 +67,13 @@ def pinDetect(pin):
     housemates[selected].deSelect()
  
     if dtState != clkState:
+        buzzer.beep(on_time=0.001, off_time=1, n=1, background=True)
         selected -= 1
     else:
         selected += 1
 
     if selected < 1:
+        buzzer.beep(on_time=0.001, off_time=1, n=1, background=True)
         selected = 0
 
     if (selected+1) > len(housemates):
