@@ -136,7 +136,7 @@ class housemate:
 
         tempTally = ""
 
-        for i in range(len(self.beercount)):
+        for i in range(self.beercount):
             tempTally += "|"
 
         self.labelTally = tk.Label(leftColumn, width =  "40",textvariable=self.tallyVar)
