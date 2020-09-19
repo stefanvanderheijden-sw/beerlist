@@ -11,8 +11,8 @@ except:
 BUTTON_TOP = 20
 BUTTON_BOTTOM = 21
 
-backgroundCLR = "grey20"
-backgroundCLR2 = "grey20"
+backgroundCLR = "black"
+backgroundCLR2 = "black"
 selectCLR = "green2"
 fontColorCLR = "green2"
 
@@ -56,8 +56,8 @@ rightBottomButtonFrame = tk.Frame(rightColumn,background=backgroundCLR)
 topButtonVar = tk.StringVar()
 bottomButtonVar = tk.StringVar()
 
-rightTopButtonLabel = tk.Label(rightTopButtonFrame,textvariable=topButtonVar, width =  "15",height= "2", background=backgroundCLR)
-rightBottomButtonLabel = tk.Label(rightBottomButtonFrame,textvariable=bottomButtonVar, width =  "15",height= "2", background=backgroundCLR)
+rightTopButtonLabel = tk.Label(rightTopButtonFrame,textvariable=topButtonVar, width =  "15",height= "2", background=backgroundCLR, fg= fontColorCLR,)
+rightBottomButtonLabel = tk.Label(rightBottomButtonFrame,textvariable=bottomButtonVar, width =  "15",height= "2", background=backgroundCLR, fg= fontColorCLR,)
 
 
 rightTopButtonFrame.pack(side="top")
@@ -142,9 +142,9 @@ class housemate:
         self.tallyVar = tk.StringVar(0)
         self.name = name
         self.beercount = beercount
-        self.label = tk.Label(leftColumn, text=self.name, width =  "15",height= "1", fg= fontColorCLR, background=backgroundCLR, anchor="w",font = ('Liberation Mono Bold',10))
-        self.labelBeer = tk.Label(leftColumn, textvariable=self.beerVar, fg= fontColorCLR,background=backgroundCLR,font = ('Liberation Mono Bold',10))
-        self.labelTally = tk.Label(leftColumn, width =  "40",textvariable=self.tallyVar, anchor="w", fg= fontColorCLR, background=backgroundCLR,font = ('Liberation Mono Bold',10))
+        self.label = tk.Label(leftColumn, text=self.name, width =  "15",height= "1", fg= fontColorCLR, background=backgroundCLR, anchor="w",font = ("Liberation Mono",10, "Bold"))
+        self.labelBeer = tk.Label(leftColumn, textvariable=self.beerVar, fg= fontColorCLR,background=backgroundCLR,font = ("Liberation Mono",10, "Bold"))
+        self.labelTally = tk.Label(leftColumn, width =  "40",textvariable=self.tallyVar, anchor="w", fg= fontColorCLR, background=backgroundCLR,font = ("Liberation Mono",10, "Bold"))
         self.row = 0
 
     def addOneBeer(self):
@@ -164,11 +164,11 @@ class housemate:
         self.drawLabel()
     
     def drawLabel(self):
-        self.label = tk.Label(leftColumn, text=self.name, width =  "15",height= "1", fg= fontColorCLR, background=backgroundCLR, anchor="w", font = ('Liberation Mono Bold',10))
+        self.label = tk.Label(leftColumn, text=self.name, width =  "15",height= "1", fg= fontColorCLR, background=backgroundCLR, anchor="w", font = ("Liberation Mono",10, "Bold"))
         self.label.grid(row = self.row, column=1, sticky = "w",pady="4")
 
     def drawLabelBeer(self):
-        self.labelBeer = tk.Label(leftColumn,width =  "4", textvariable=self.beerVar, fg= fontColorCLR, background=backgroundCLR,font = ('Liberation Mono Bold',10))
+        self.labelBeer = tk.Label(leftColumn,width =  "4", textvariable=self.beerVar, fg= fontColorCLR, background=backgroundCLR,font = ("Liberation Mono",10, "Bold"))
         self.beerVar.set(str(self.beercount))
         self.labelBeer.grid(row = self.row, column=2)
 
@@ -178,7 +178,7 @@ class housemate:
             tempTally += "|"
 
         self.tallyVar.set(tempTally)
-        self.labelTally = tk.Label(leftColumn, width =  "40",textvariable=self.tallyVar, anchor="w", fg= fontColorCLR, background=backgroundCLR,font = ('Liberation Mono Bold',10))
+        self.labelTally = tk.Label(leftColumn, width =  "40",textvariable=self.tallyVar, anchor="w", fg= fontColorCLR, background=backgroundCLR,font = ("Liberation Mono",10, "Bold"))
         self.labelTally.grid(row = self.row, column=3)
 
     def drawBeers(self):
