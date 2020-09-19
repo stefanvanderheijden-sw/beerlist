@@ -121,11 +121,12 @@ class housemate:
         self.label.grid(row = self.row, column=1, sticky = "w")
 
     def drawLabelBeer(self):
+        self.labelBeer = tk.Label(leftColumn, textvariable=self.beerVar)
         self.beerVar.set(str(self.beercount))
         self.labelBeer.grid(row = self.row, column=2)
 
     def drawBeers(self):
-        self.labelBeer.grid_forget()
+        # self.labelBeer.grid_forget()
         self.drawLabel()
 
     def selfDestruct(self):
