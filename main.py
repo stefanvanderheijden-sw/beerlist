@@ -41,10 +41,13 @@ leftColumn.pack(side="left")
 rightColumn = tk.Frame(window)
 rightColumn.pack(side="right")
 
+topColumn = tk.Frame(window)
+topColumn.pack(side="top")
+
 rightTopButtonFrame = tk.Frame(rightColumn)
 rightBottomButtonFrame = tk.Frame(rightColumn)
 
-rightColumn.pack(side="right")
+rightColumn.pack(side="right",padx=20)
 
 topButtonVar = tk.StringVar()
 bottomButtonVar = tk.StringVar()
@@ -52,12 +55,11 @@ bottomButtonVar = tk.StringVar()
 rightTopButtonLabel = tk.Label(rightTopButtonFrame,textvariable=topButtonVar, width =  "15",height= "2", background="white")
 rightBottomButtonLabel = tk.Label(rightBottomButtonFrame,textvariable=bottomButtonVar, width =  "15",height= "2", background="white")
 
-rightTopButtonFrame.pack()
-rightBottomButtonFrame.pack()
+rightTopButtonFrame.pack(pady=40)
+rightBottomButtonFrame.pack(pady=40)
 
 rightTopButtonLabel.pack()
 rightBottomButtonLabel.pack()
-
 
 topButtonVar.set("ONE BEER")
 bottomButtonVar.set("MENU")
@@ -72,7 +74,7 @@ labelList = []
 def buttonFunction():
     sys.exit()
 
-B = tk.Button(rightColumn, text ="Exit", command = buttonFunction)
+B = tk.Button(topColumn, text ="Exit", command = buttonFunction)
 B.pack()
 
 def sortlist(list):
