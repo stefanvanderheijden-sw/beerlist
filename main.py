@@ -55,8 +55,8 @@ rightBottomButtonLabel = tk.Label(rightBottomButtonFrame,textvariable=bottomButt
 
 rightColumn.pack(side="right")
 
-rightTopButtonFrame.pack(pady=200)
-rightBottomButtonFrame.pack(pady=200)
+rightTopButtonFrame.pack(pady=260)
+rightBottomButtonFrame.pack(pady=260)
 
 rightTopButtonLabel.pack()
 rightBottomButtonLabel.pack()
