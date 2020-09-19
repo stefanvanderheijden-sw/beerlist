@@ -118,12 +118,9 @@ class housemate:
         self.drawLabel()
 
     def selfDestruct(self):
-        global housemates
-        
         self.label.grid_forget()
         self.labelBeer.grid_forget()
 
-        housemates.pop(self.row)
     
     def select(self):
         self.label.config(bg="gray")
@@ -158,13 +155,17 @@ def read_housemate_csv():
     temphousemates = []
     for newhousemate in housemates:
         for tempCsvHousemate in tempCsvHousemates:
+            exists = 0
             print("comparing " +newhousemate.name + " with " + tempCsvHousemate)
             if tempCsvHousemate == newhousemate.name:
+                exists = 1
                 print("found a housemate in the csv file with the same name")
                 temphousemates.append(newhousemate)
+            if exists == 0:
+                newhousemate.selfDestruct()
     
     for tempmate in temphousemates:
-        print(tempmate.name)
+        print(tempmate.name + "      " +tempmate.beercount)
 
     housemates = temphousemates
 
