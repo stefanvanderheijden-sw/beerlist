@@ -143,7 +143,6 @@ def read_housemate_csv():
     with open('/home/pi/Script/Beerlist/housemates.csv', mode='r') as housemates_csv:
         csv_reader = csv.reader(housemates_csv, delimiter=',')
         for row in csv_reader:
-            print("found a row with name: " +row[0])
             exists = 0
             for oldhousemate in housemates:
                 if oldhousemate.name == row[0]:
@@ -154,10 +153,12 @@ def read_housemate_csv():
         temphousemates = []
         for newhousemate in housemates:
             for row in csv_reader:
+
                 if row[0] == newhousemate.name:
+                    print("found a housemate in the csv file with the same name")
                     temphousemates.append(newhousemate)
         housemates_csv.close()
-        housemates = temphousemates
+    housemates = temphousemates
 
           
 
