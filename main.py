@@ -201,15 +201,18 @@ refreshList()
 add_housemate_csv("Stefan")
 add_housemate_csv("Stefan2")
 add_housemate_csv("Stefan3")
-add_housemate_csv("Stefan4")
-add_housemate_csv("Stefan5")
-add_housemate_csv("Stefan6")
 
 read_housemate_csv()
 
 refreshList()
 
 remove_housemate_csv("Stefan2")
+remove_housemate_csv("A3")
+remove_housemate_csv("Bastian")
+remove_housemate_csv("Lara")
+remove_housemate_csv("Sven")
+remove_housemate_csv("House")
+
 
 read_housemate_csv()
 
