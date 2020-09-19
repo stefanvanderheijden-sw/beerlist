@@ -155,13 +155,11 @@ def read_housemate_csv():
     temphousemates = []
     for newhousemate in housemates:
         for tempCsvHousemate in tempCsvHousemates:
-            exists = 0
             print("comparing " +newhousemate.name + " with " + tempCsvHousemate)
             if tempCsvHousemate == newhousemate.name:
-                exists = 1
                 print("found a housemate in the csv file with the same name")
                 temphousemates.append(newhousemate)
-            # if exists == 0:
+            # if exists2 == 0:
                 # newhousemate.selfDestruct()
     
     for tempmate in temphousemates:
@@ -202,7 +200,7 @@ refreshBeerList()
 
 refreshList()
 
-add_housemate_csv("Freekje")
+add_housemate_csv("Stefan")
 
 read_housemate_csv()
 
