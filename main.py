@@ -94,7 +94,7 @@ class housemate:
         self.beerVar = tk.StringVar(0)
         self.name = name
         self.beercount = beercount
-        self.label = tk.Label(leftColumn, text=self.name, width =  "15",height= "5", background="white", anchor="w")
+        self.label = tk.Label(leftColumn, text=self.name, width =  "15",height= "2", background="white", anchor="w")
         self.labelBeer = tk.Label(leftColumn, textvariable=self.beerVar)
         self.row = 0
 
