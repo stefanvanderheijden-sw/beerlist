@@ -41,7 +41,7 @@ topColumn.pack()
 leftColumn = tk.Frame(window,borderwidth = 1,relief=tk.SOLID)
 leftColumn.pack(side="left",padx=10)
 
-rightColumn = tk.Frame(window, height="600",width="40",borderwidth = 1,relief=tk.SOLID)
+rightColumn = tk.Frame(window, height="600",width="100",borderwidth = 1,relief=tk.SOLID)
 rightColumn.pack(side="left")
 rightColumn.pack_propagate(0)
 
