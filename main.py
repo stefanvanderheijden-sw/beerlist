@@ -71,9 +71,10 @@ def pinDetect(pin):
         selected -= 1
     else:
         selected += 1
+        buzzer.beep(on_time=0.001, off_time=1, n=1, background=True)
 
     if selected < 1:
-        buzzer.beep(on_time=0.001, off_time=1, n=1, background=True)
+        
         selected = 0
 
     if (selected+1) > len(housemates):
