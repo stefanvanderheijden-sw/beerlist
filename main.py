@@ -35,13 +35,13 @@ buzzer = Buzzer(16)
 window = tk.Tk()
 window.attributes("-fullscreen", True)
 
-topColumn = tk.Frame(window)
+topColumn = tk.Frame(window,borderwidth = 1)
 topColumn.pack()
 
-leftColumn = tk.Frame(window)
+leftColumn = tk.Frame(window,borderwidth = 1)
 leftColumn.pack(side="left",padx=20)
 
-rightColumn = tk.Frame(window,height=500, borderwidth = 1)
+rightColumn = tk.Frame(window,height=50, borderwidth = 1)
 
 
 rightTopButtonFrame = tk.Frame(rightColumn, borderwidth = 1)
