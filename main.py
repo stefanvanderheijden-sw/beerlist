@@ -146,25 +146,11 @@ def read_housemate_csv():
             print("found a row with name: " +row[0])
             exists = 0
             for oldhousemate in housemates:
-                exists2 = 0
                 if oldhousemate.name == row[0]:
-                    exists2 = 1
                     exists = 1
                     print(oldhousemate.name + " already exists")
-            if exists2 == 0:
-                print("this housemate exists in the list but not in the CSV!!!!!!")
             if exists == 0:
                 housemates.append(housemate(row[0],0))
-        # for currentHousemate in housemates:
-        #     print("found a housemate")
-        #     exists = 0
-        #     for row in csv_reader:
-        #         print("found a row in the row reading stuff")
-        #         if currentHousemate.name == row[0]:
-        #             exists = 1
-        #             print("housemate " + currentHousemate.name + " exists in the CSV file")
-        #     if exists == 0:
-        #         print("housemate " + currentHousemate.name + " does no longer exist in the CSV")
         housemates_csv.close()  
 
 def add_housemate_csv(name):
@@ -172,8 +158,6 @@ def add_housemate_csv(name):
         housemate_write = csv.writer(housemates_csv, delimiter=',', quotechar='”', quoting=csv.QUOTE_MINIMAL)
         housemate_write.writerow([name])
         housemates_csv.close()  
-
-
 
 def remove_housemate_csv(name):
     with open('/home/pi/Script/Beerlist/housemates.csv', 'r') as readFile:
