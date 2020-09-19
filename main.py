@@ -30,6 +30,7 @@ import tkinter as tk
 import operator
 import csv
 import sys
+from tkinter import font
 
 buzzer = Buzzer(16)
 
