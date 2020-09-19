@@ -162,7 +162,7 @@ def read_housemate_csv():
                 print("found a housemate in the csv file with the same name")
                 temphousemates.append(newhousemate)
             if exists == 0:
-                newhousemate.selfDestruct()
+                # newhousemate.selfDestruct()
     
     for tempmate in temphousemates:
         print(tempmate.name + "      " +str(tempmate.beercount))
