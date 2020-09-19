@@ -164,6 +164,7 @@ def read_housemate_csv():
         print(tempmate.name + "      " +str(tempmate.beercount))
 
     housemates = temphousemates
+    refreshList()
 
           
 
@@ -176,7 +177,7 @@ def add_housemate_csv(name):
         with open('/home/pi/Script/Beerlist/housemates.csv', mode='a') as housemates_csv:
             housemate_write = csv.writer(housemates_csv, delimiter=',', quotechar='”', quoting=csv.QUOTE_MINIMAL)
             housemate_write.writerow([name])
-            housemates_csv.close()  
+        housemates_csv.close()  
 
 def remove_housemate_csv(name):
     lines = list()
@@ -194,35 +195,22 @@ def remove_housemate_csv(name):
 
     writeFile.close     
 
-lines = list()
+read_housemate_csv()
+
+# add_housemate_csv("Stefan")
+# add_housemate_csv("Stefan2")
+# add_housemate_csv("Stefan3")
 
 read_housemate_csv()
 
-refreshList()
-
-refreshBeerList()
-
-refreshList()
-
-add_housemate_csv("Stefan")
-add_housemate_csv("Stefan2")
-add_housemate_csv("Stefan3")
-
-read_housemate_csv()
-
-refreshList()
-
-remove_housemate_csv("Stefan2")
+remove_housemate_csv("Stefan")
 remove_housemate_csv("A3")
 remove_housemate_csv("Bastian")
 remove_housemate_csv("Lara")
 remove_housemate_csv("Sven")
 remove_housemate_csv("House")
 
-
 read_housemate_csv()
-
-refreshList()
 
 clkLastState = GPIO.input(17)
 try:
