@@ -233,8 +233,8 @@ class menuItem:
 
 
     def drawLabel(self):
-        self.label = tk.Label(menuLeftColumn, text=self.name, width =  "15",height= "1", fg= fontColorCLR, background=backgroundCLR, anchor="w", font = ("Liberation Mono",10),sticky="nsew")
-        self.label.grid(row = self.row, column=1, sticky = "w",pady="4")
+        self.label = tk.Label(menuLeftColumn, text=self.name, width =  "15",height= "1", fg= fontColorCLR, background=backgroundCLR, anchor="w", font = ("Liberation Mono",10))
+        self.label.grid(row = self.row, column=1, sticky = "w",pady="4",sticky="nsew")
 
     def select(self):
         self.label.config(bg=selectCLR)
