@@ -108,6 +108,7 @@ def topButton(pin):
         buzzer.beep(on_time=0.05, off_time=1, n=1, background=True)
 
 def bottomButton(pin):
+    global menuOpen
     if menuOpen == False:
         openMenu()
         menuOpen = True
