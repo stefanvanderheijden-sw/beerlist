@@ -129,6 +129,9 @@ def pinDetect(pin):
     global selected
     global clkLastState
     housemates[selected].deSelect()
+    
+    if menuOpen == True:
+        menuItems[selected].deSelect()
  
     if dtState != clkState:
         buzzer.beep(on_time=0.001, off_time=1, n=1, background=True)
@@ -144,6 +147,7 @@ def pinDetect(pin):
         if (selected+1) > len(housemates):
             selected = (len(housemates)-1)
         housemates[selected].select()
+    
     if menuOpen == True:
         if (selected+1) > len(menuItems):
             selected = (len(menuItems)-1)
