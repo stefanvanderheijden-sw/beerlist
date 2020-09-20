@@ -85,13 +85,7 @@ def openMenu():
 
     global menuLeftColumn
     menuLeftColumn = tk.Frame(menuWindow,background=backgroundCLR2, height= "600")
-    menuLeftColumn.grid(padx=10,pady = 200)
-
-    l = tk.Label(menuWindow, text="Input")
-    l.grid(row=0, column=0)
-
-    b = ttk.Button(menuWindow, text="Okay", command=menuWindow.destroy)
-    b.grid(row=1, column=0)
+    menuLeftColumn.grid(padx=10,pady = 400)
 
     menuItems = []
 
