@@ -85,7 +85,7 @@ def openMenu():
 
     global menuLeftColumn
     menuLeftColumn = tk.Frame(menuWindow,background=backgroundCLR2)
-    menuLeftColumn.grid(padx=10)
+    menuLeftColumn.grid(padx=10,sticky = "nsew")
 
     l = tk.Label(menuWindow, text="Input")
     l.grid(row=0, column=0)
@@ -234,7 +234,7 @@ class menuItem:
 
     def drawLabel(self):
         self.label = tk.Label(menuLeftColumn, text=self.name, width =  "15",height= "1", fg= fontColorCLR, background=backgroundCLR, anchor="w", font = ("Liberation Mono",10))
-        self.label.grid(row = self.row, column=1, sticky = "nsew",pady="4")
+        self.label.grid(row = self.row, column=1, sticky = "w",pady="4")
 
     def select(self):
         self.label.config(bg=selectCLR)
