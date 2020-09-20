@@ -84,7 +84,7 @@ def openMenu():
     menuWindow.configure(bg=backgroundCLR2)
 
     menuLeftColumn = tk.Frame(menuWindow,background=backgroundCLR2)
-    menuLeftColumn.pack(side="left",padx=10)
+    menuLeftColumn.grid(side="left",padx=10)
 
     l = tk.Label(menuWindow, text="Input")
     l.grid(row=0, column=0)
