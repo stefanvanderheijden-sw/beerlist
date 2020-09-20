@@ -32,9 +32,9 @@ import operator
 import csv
 import sys
 from tkinter import font
+from tkinter import ttk
 
 buzzer = Buzzer(16)
-
 
 window = tk.Tk()
 window.attributes("-fullscreen", True)
@@ -59,7 +59,6 @@ bottomButtonVar = tk.StringVar()
 rightTopButtonLabel = tk.Label(rightTopButtonFrame,textvariable=topButtonVar, width =  "15",height= "2", background=backgroundCLR, fg= fontColorCLR,)
 rightBottomButtonLabel = tk.Label(rightBottomButtonFrame,textvariable=bottomButtonVar, width =  "15",height= "2", background=backgroundCLR, fg= fontColorCLR,)
 
-
 rightTopButtonFrame.pack(side="top")
 rightBottomButtonFrame.pack(side="bottom")
 
@@ -75,6 +74,17 @@ selected = 0
 
 housemates = []
 labelList = []
+
+def openMenu():
+    win = tk.Toplevel()
+    win.wm_title("Window")
+
+    l = tk.Label(win, text="Input")
+    l.grid(row=0, column=0)
+
+    b = ttk.Button(win, text="Okay", command=win.destroy)
+    b.grid(row=1, column=0)
+
 
 def buttonFunction():
     sys.exit()
