@@ -101,6 +101,7 @@ def sortlist(list):
     return list
 
 def topButton(pin):
+    global menuOpen
     if menuOpen == False:
         housemates[selected].addOneBeer()
         housemates[selected].drawLabelBeer()
