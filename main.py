@@ -94,10 +94,10 @@ def openMenu():
 
     menuItems = []
 
-    menuItems.append(menuItem("DELETE HOUSEMATE", "function", 0))
-    menuItems.append(menuItem("ADD HOUSEMATE", "function", 1))
-    menuItems.append(menuItem("RESET BEERCOUNT", "function", 2))
-    menuItems.append(menuItem("EXIT MENU", "function", 3))
+    menuItems.append(menuItem("DELETE HOUSEMATE", "function", 0,menuLeftColumn))
+    menuItems.append(menuItem("ADD HOUSEMATE", "function", 1,menuLeftColumn))
+    menuItems.append(menuItem("RESET BEERCOUNT", "function", 2,menuLeftColumn))
+    menuItems.append(menuItem("EXIT MENU", "function", 3,menuLeftColumn))
 
 def buttonFunction():
     sys.exit()
@@ -224,14 +224,15 @@ class housemate:
         self.label.config(fg=fontColorCLR)
 
 class menuItem:
-    def __init__(self, name, function, row):
+    def __init__(self, name, function, row,parentFrame):
         self.name = name
         self.function = function
         self.row = row
         self.drawLabel()
+        self.parentFrame = parentFrame
 
     def drawLabel(self):
-        self.label = tk.Label(menuLeftColumn, text=self.name, width =  "15",height= "1", fg= fontColorCLR, background=backgroundCLR, anchor="w", font = ("Liberation Mono",10))
+        self.label = tk.Label(self.parentFrame, text=self.name, width =  "15",height= "1", fg= fontColorCLR, background=backgroundCLR, anchor="w", font = ("Liberation Mono",10))
         self.label.grid(row = self.row, column=1, sticky = "w",pady="4")
 
     def select(self):
