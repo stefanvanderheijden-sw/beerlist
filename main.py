@@ -85,8 +85,9 @@ def openMenu():
 
     global menuLeftColumn
     menuLeftColumn = tk.Frame(menuWindow,background=backgroundCLR2, height= "600")
-    menuLeftColumn.grid(padx=10,pady = 400)
+    menuLeftColumn.grid(padx=10,pady = 500)
 
+    global menuItems
     menuItems = []
 
     menuItems.append(menuItem("DELETE HOUSEMATE", "function", 0))
@@ -136,14 +137,17 @@ def pinDetect(pin):
         selected += 1
         buzzer.beep(on_time=0.001, off_time=1, n=1, background=True)
 
-    if selected < 1:
-        
+    if selected < 1:       
         selected = 0
 
-    if (selected+1) > len(housemates):
-        selected = (len(housemates)-1)
-
-    housemates[selected].select()
+    if menuOpen == False:
+        if (selected+1) > len(housemates):
+            selected = (len(housemates)-1)
+        housemates[selected].select()
+    if menuOpen == True:
+        if (selected+1) > len(menuItems):
+            selected = (len(menuItems)-1)
+        menuItems[selected].select()
 
 def refreshList():
     for widget in leftColumn.winfo_children():
