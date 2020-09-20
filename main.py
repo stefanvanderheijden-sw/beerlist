@@ -83,12 +83,21 @@ def openMenu():
     menuWindow.attributes("-fullscreen", True)
     menuWindow.configure(bg=backgroundCLR2)
 
+    menuLeftColumn = tk.Frame(menuWindow,background=backgroundCLR2)
+    menuLeftColumn.pack(side="left",padx=10)
+
     l = tk.Label(menuWindow, text="Input")
     l.grid(row=0, column=0)
 
     b = ttk.Button(menuWindow, text="Okay", command=menuWindow.destroy)
     b.grid(row=1, column=0)
 
+    menuItems = []
+
+    menuItems.append(menuItem("DELETE HOUSEMATE", "function", 0))
+    menuItems.append(menuItem("ADD HOUSEMATE", "function", 1))
+    menuItems.append(menuItem("RESET BEERCOUNT", "function", 2))
+    menuItems.append(menuItem("EXIT MENU", "function", 3))
 
 def buttonFunction():
     sys.exit()
@@ -162,12 +171,6 @@ class housemate:
         self.tallyVar = tk.StringVar(0)
         self.name = name
         self.beercount = beercount
-        # self.label = tk.Label(leftColumn, text=self.name, width =  "15",height= "1", fg= fontColorCLR, background=backgroundCLR, anchor="w",font = ("Liberation Mono",10))
-        # self.labelBeer = tk.Label(leftColumn, textvariable=self.beerVar, fg= fontColorCLR,background=backgroundCLR,font = ("Liberation Mono",10))
-        # self.labelTally = tk.Label(leftColumn, width =  "40",textvariable=self.tallyVar, anchor="w", fg= fontColorCLR, background=backgroundCLR)
-        # self.label = tk.Label()
-        # self.labelBeer = tk.Label()
-        # self.labelTally = tk.Label()
         self.row = 0
 
     def addOneBeer(self):
@@ -211,8 +214,26 @@ class housemate:
     def selfDestruct(self):
         self.label.grid_forget()
         self.labelBeer.grid_forget()
-
     
+    def select(self):
+        self.label.config(bg=selectCLR)
+        self.label.config(fg=backgroundCLR)
+
+    def deSelect(self):
+        self.label.config(bg=backgroundCLR)
+        self.label.config(fg=fontColorCLR)
+
+class menuItem:
+    def __init__(self, name, function, row):
+        self.name = name
+        self.function = function
+        self.row = row
+        self.drawLabel()
+
+    def drawLabel(self):
+        self.label = tk.Label(menuLeftColumn, text=self.name, width =  "15",height= "1", fg= fontColorCLR, background=backgroundCLR, anchor="w", font = ("Liberation Mono",10))
+        self.label.grid(row = self.row, column=1, sticky = "w",pady="4")
+
     def select(self):
         self.label.config(bg=selectCLR)
         self.label.config(fg=backgroundCLR)
