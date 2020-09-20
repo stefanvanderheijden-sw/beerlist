@@ -75,14 +75,18 @@ selected = 0
 housemates = []
 labelList = []
 
-def openMenu():
-    win = tk.Toplevel()
-    win.wm_title("Window")
+menuOpen = False
 
-    l = tk.Label(win, text="Input")
+def openMenu():
+    menuWindow = tk.Toplevel()
+    menuWindow.wm_title("Window")
+    menuWindow.attributes("-fullscreen", True)
+    menuWindow.configure(bg=backgroundCLR2)
+
+    l = tk.Label(menuWindow, text="Input")
     l.grid(row=0, column=0)
 
-    b = ttk.Button(win, text="Okay", command=win.destroy)
+    b = ttk.Button(menuWindow, text="Okay", command=menuWindow.destroy)
     b.grid(row=1, column=0)
 
 
@@ -97,12 +101,15 @@ def sortlist(list):
     return list
 
 def topButton(pin):
-    housemates[selected].addOneBeer()
-    housemates[selected].drawLabelBeer()
-    buzzer.beep(on_time=0.05, off_time=1, n=1, background=True)
+    if menuOpen == False:
+        housemates[selected].addOneBeer()
+        housemates[selected].drawLabelBeer()
+        buzzer.beep(on_time=0.05, off_time=1, n=1, background=True)
 
 def bottomButton(pin):
-    openMenu()
+    if menuOpen == False:
+        openMenu()
+        menuOpen = True
     # housemates[selected].substractOneBeer()
     # housemates[selected].drawLabelBeer()
     # buzzer.beep(on_time=0.2, off_time=1, n=1, background=True)
