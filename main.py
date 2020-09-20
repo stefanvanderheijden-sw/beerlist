@@ -83,6 +83,7 @@ def openMenu():
     menuWindow.attributes("-fullscreen", True)
     menuWindow.configure(bg=backgroundCLR2)
 
+    global menuLeftColumn
     menuLeftColumn = tk.Frame(menuWindow,background=backgroundCLR2)
     menuLeftColumn.grid(padx=10)
 
